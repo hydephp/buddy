@@ -19,6 +19,11 @@ Buddy is installed as a Laravel application, and is going to be bundled with an 
 in the future. Buddy must be installed on the same system as your Hyde project, as it is
 a local development tool that must be able to communicate with the HydeCLI. 
 
+## Roadmap
+
+* [ ] Add realtime Markdown editing
+* [ ] Add form to create blog posts
+* [ ] Add configuration options to save and change settings such as site label, HydeRC URI, preferences, etc. Can be stored in a JSON file.
 
 ### Attributions
 
