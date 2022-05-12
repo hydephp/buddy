@@ -21,6 +21,7 @@ class CompileStaticSite extends Controller
         // @todo add lock to prevent multiple requests
         $time_start = microtime(true);
         ob_end_clean();
+        echo '<title>Compiling static site</title>';
         echo '<pre style="white-space:pre-line;">';
         echo '<h1>Compiling static site</h1>';
         echo '<h2>Initiating build loop</h2>';
