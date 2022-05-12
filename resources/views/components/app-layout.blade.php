@@ -11,8 +11,17 @@
         <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
         <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css?v=2.0.2') }}" rel="stylesheet" />
     </head>
-    <body>
-        {{ $slot }}
+    <body class="g-sidenav-show bg-gray-100">
+        <main>
+            {{ $slot }}
+        </main>
+
+        <!--   Core JS Files   -->
+        <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+
+        <!-- Control Center for Argon Dashboard: parallax effects, scripts for the example pages etc -->
+        <script src="{{ asset('assets/js/argon-dashboard.min.js') }}"></script>
     </body>
 </html>
 
