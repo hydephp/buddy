@@ -12,6 +12,7 @@ class HydeManager extends Component
     
     // Input
     public string $path = '';
+    public bool $terms = false;
 
     // Data
     public string $hydePath;
@@ -29,6 +30,12 @@ class HydeManager extends Component
 
         $this->hydePath = realpath($this->path);
         $this->formProgress = 2;
+    }
+
+    public function setup()
+    {
+        $this->formProgress = 3;
+
     }
 
     public function render()

@@ -39,7 +39,7 @@
             @endif
             
             @if($formProgress >= 2)
-            <hr class="my-5">
+            <br>
             
             <h3 class="h5">
                 2. Quick heads up before we proceed!
@@ -52,12 +52,12 @@
                 Please share your feedback, suggestions, and bug reports at GitHub:
                 <a href="https://github.com/hydephp/buddy">github.com/hydephp/buddy</a>!
             </p>
-            <form wire:submit.prevent="acceptTerms">
+            <form wire:submit.prevent="setup">
                 <div class="form-group my-2">
                     <div class="d-flex align-items-center">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="terms" required>
-                            <label class="form-check-label pe-4" for="terms">
+                            <input type="checkbox" class="form-check-input" id="terms" wire:model="terms" required>
+                            <label class="form-check-label pe-4 mb-0" for="terms">
                                 I understand that I am using this software at my own risk and I also accept the terms of
                                 <a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md" target="_blank">the MIT License agreement</a>.
                             </label>
@@ -67,6 +67,17 @@
                 </div>
             </form>
             @endif
+
+            <div class="w-100" {{ $formProgress < 3 ? 'wire:loading' : '' }} wire:target="setup">
+                <br>
+            
+                <h3 class="h5">
+                    3. Setting up project...
+                </h3>
+                <p class="text-std">
+                    Your project is being set up. This may take a few seconds.
+                </p>
+            </div>
         </div>
     </div>
     @endif
