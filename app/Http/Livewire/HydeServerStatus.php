@@ -13,6 +13,7 @@ class HydeServerStatus extends Component
 
     public function ping()
     {
+        $this->status = 0;
         try {
             $response = Http::timeout(3)->get('http://localhost:8080/');
         } catch (\Illuminate\Http\Client\ConnectionException $exception) {
