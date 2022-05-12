@@ -12,9 +12,8 @@
             </p>
         </header>
         
-        @if($formProgress >= 1)
         <div class="container col-lg-6 py-2">
-                
+            @if($formProgress >= 1)
             <form wire:submit.prevent="findHydeProject">
                 <div class="form-group">
                     <label for="path" class="h6">
@@ -34,9 +33,8 @@
                 </div>
                 @enderror
             </form>
-            
+            @endif
         </div>
-        @endif
     </div>
     @endif
 </section>
