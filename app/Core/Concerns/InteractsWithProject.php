@@ -2,8 +2,18 @@
 
 namespace App\Core\Concerns;
 
+use App\Core\BuddyFacade;
+
 trait InteractsWithProject
 {
+    /**
+     * Get the current project path.
+     */
+    public function getPath(): string
+    {
+        return BuddyFacade::hyde()->getPath();
+    }
+
     /**
      * Run a command in the project's HydeCLI and return the output.
      */
