@@ -12,7 +12,7 @@
                     <span class="text-gray fw-bold" role="presentation">&bullet;</span>
                     @break
                 @case(200)
-                    <a href="http://localhost:8080" target="_blank" class="fw-medium text-success">
+                    <a href="javascript:void(null);" wire:click="ping" title="Click to refresh" class="fw-medium text-success">
                         Server Online
                     </a>
                     <span class="text-success fw-bold" role="presentation">&bullet;</span>
