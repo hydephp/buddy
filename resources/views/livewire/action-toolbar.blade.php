@@ -7,15 +7,18 @@
             Compile static site
         </a>
     </li>
-    <li wire:loaded="ping">
+    <li wire:init="ping">
         @if($serverActive)
-        <a href="http://localhost:8080" target="_blank" class="btn btn-success py-1 px-3 me-2">
-            Open Hyde Site
-        </a>
+        <style>#quickactions-live-link {display: inline;}</style>
+        <button class="btn btn-danger py-1 px-3 me-2" wire:loading.attr="disabled"></span>
+            <span wire:loading.remove>Stop Server</span>
+            <span wire:loading>Loading status...</span>
+        </button>
         @else
-        <button class="btn btn-success py-1 px-3 me-2" disabled>
-            <span wire:loading>Checking Status</span>
-            <span wire:loading.remove >Server Offline</span>
+        <style>#quickactions-live-link {display: none;}</style>
+        <button class="btn btn-success py-1 px-3 me-2" wire:loading.attr="disabled"></span>
+            <span wire:loading.remove>Start Server</span>
+            <span wire:loading>Loading status...</span>
         </button>
         @endif
     </li>
