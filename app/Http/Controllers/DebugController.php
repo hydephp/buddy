@@ -14,5 +14,7 @@ class DebugController extends Controller
         echo '<h1>Printing Debug Information</h1>';
         echo '<h2>Active Buddy Service:</h2>';
         dump($buddy);
+        echo '<h2>Hyde Installation:</h2>';
+        dump($buddy->hyde());
     }
 }
