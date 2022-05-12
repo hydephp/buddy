@@ -2,21 +2,22 @@
 
 namespace App\Core;
 
+use App\Core\Concerns\IsIdentifiable;
+
 /**
  * Primary interface implementation for interacting with the Hyde Buddy.
  */
 class BuddyProvider implements Buddy
 {
+    use IsIdentifiable;
+
     protected bool $initialized = false;
     protected Hyde $hyde;
 
-
 	public function __construct()
 	{
-        if (! $this->isInitialized())
-        {
-            $this->initialize();
-        }
+        $this->identify();
+        $this->initialize();
 	}
 
     // Assertion methods
