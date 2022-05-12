@@ -15,7 +15,9 @@
                     PHP Version
                 </th>
                 <th class="text-dark text-sm fw-medium p-2 border">
-                    HydeRC Status
+                    <span title="Checks if a Hyde server is running on the default port">
+                        HydeRC Status
+                    </span>
                 </th>
             </tr>
         </thead>
@@ -35,7 +37,7 @@
                 </th>
              
                 <td class="text-sm p-2 border">
-                    
+                    <livewire:hyde-server-status />
                 </td>
             </tr>
         </tbody>
