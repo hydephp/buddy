@@ -21,6 +21,8 @@ class HydeManager extends Component
             $this->addError('path', 'Could not find a Hyde project here.');
             return;
         }
+
+        $this->formProgress = 2;
     }
 
     public function render()

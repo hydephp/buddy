@@ -12,13 +12,22 @@
                 </p>
             </header>
 
-            @if($formProgress <= 1)
-            <form class="container col-lg-6" wire:submit.prevent="findHydeProject">
+            @if($formProgress >= 1)
+            <form class="container col-lg-6 mt-2" wire:submit.prevent="findHydeProject">
                 <div class="form-group">
-                    <label for="path">Please enter the full path to your Hyde project</label>
+                    <label for="path" class="h6">
+                        Please enter the full path to your Hyde project
+                        @if($formProgress > 1)
+                            ✅
+                        @endif
+                    </label>
                     <div class="input-group ">
                         <input type="text" class="form-control form-control-lg @error('path') is-invalid @enderror" id="path" wire:model="path" placeholder="e.g. C:\Users\Hyde\Desktop\MyNewHydeProject" required>
-                        <button type="submit" class="btn btn-primary my-0">Find Project</button>
+                        <button type="submit" @class([
+                            'my-0 btn',
+                            'btn-primary' => $formProgress <= 1,
+                            'btn-success' => $formProgress > 1,
+                        ])>Find Project</button>
                     </div>
                     @error('path')
                     <div class="invalid-feedback d-block">
