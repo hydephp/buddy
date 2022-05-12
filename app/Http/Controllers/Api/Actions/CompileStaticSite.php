@@ -23,12 +23,6 @@ class CompileStaticSite extends Controller
         ob_end_clean();
         echo '<pre>';
         echo '<h1>Compiling static site</h1>';
-        
-        echo '<h2>Preparing a streamed response</h2>';
-        echo '<h3>Printing debug information and working directory</h3>';
-        $this->passthru('debug');
-        echo PHP_EOL;
-
         echo '<h2>Initiating build loop</h2>';
         echo '<h3 style="color:red;">This may take a while... Feed might seem unresponsive. Do not reload or close this window.</h3>';
         echo '<h4>Your application terminal may contain extra debug output.</h4>';
