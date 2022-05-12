@@ -24,6 +24,11 @@ a local development tool that must be able to communicate with the HydeCLI.
 * [ ] Add realtime Markdown editing
 * [ ] Add form to create blog posts
 * [ ] Add configuration options to save and change settings such as site label, HydeRC URI, preferences, etc. Can be stored in a JSON file.
+* [ ] One-click install to create new Hyde sites?
+* [ ] Make it easy to switch between sites/projects
+* [ ] Add documentation
+* [ ] Add tests
+* [ ] Create the executables
 
 ### Attributions
 
