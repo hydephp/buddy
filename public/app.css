@@ -40,3 +40,8 @@ a {
 .w-fit {
     width: fit-content;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0d6efd;
+}
