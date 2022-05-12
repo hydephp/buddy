@@ -13,7 +13,7 @@
         </p>
     </header>
     
-    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-wrap justify-content-center">
         <section class="col-lg-4 m-4">
             <div class="card">
                 <div class="card-header pb-0 p-3">
@@ -40,6 +40,17 @@
                     It does not work with interactive commands.
                     <br>Fullscreen mode not yet implemented.
                 </small>
+            </div>
+        </section>
+
+        <section class="col-lg-6 m-4">
+            <div class="card">
+                <div class="card-header pb-0 p-3 d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0">Content Explorer</h5>
+                </div>
+                <div class="card-body p-3">
+                    <livewire:content-explorer />
+                </div>
             </div>
         </section>
     </div>
