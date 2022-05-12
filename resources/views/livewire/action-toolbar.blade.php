@@ -3,7 +3,7 @@
         <button class="btn btn-primary py-1 px-3 me-2">Create new file</button>
     </li>
     <li>
-        <button onclick="window.open('{{ route('api.actions.compile-static-site') }}', 'popup', 'width=800, height=600')" target="popup" class="btn btn-warning py-1 px-3 me-2">
+        <button onclick="window.open('{{ route('api.actions.compile-static-site') }}', 'popup', 'width=800, height=760')" target="popup" class="btn btn-warning py-1 px-3 me-2">
             Compile static site
         </a>
     </li>
