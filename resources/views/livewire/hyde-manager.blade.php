@@ -94,5 +94,22 @@
             </div>
         </div>
     </div>
+    @else
+
+    <div class="container mx-auto mb-8">
+        <header class="text-center mb-4">
+            <h2 class="mb-4">Buddy is set up and ready to go!</h2>
+            <p class="lead mb-2">
+                Your Buddy is configured for the following Hyde installation: <code class="bg-light">{{ Buddy::hyde()->getPath() }}</code>
+                <small class="text-sm">
+                    Not correct? <a href="javascript:void(null);" onclick="confirm('Are you sure you want to remove the configured project?')" wire:click="killHyde">Click to Delete</a>.
+                </small>
+            </p>
+
+            <p class="mt-4">
+                <a href="{{ route('dashboard') }}" class="btn btn-success me-2">Go to Dashboard</a>
+            </p>
+        </header>
+    </div>
     @endif
 </section>
