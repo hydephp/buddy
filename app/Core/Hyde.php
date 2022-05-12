@@ -23,4 +23,13 @@ class Hyde
     {
         return ! empty($this->path);
     }
+
+    public static function isThisAValidHydeProjectPath(string $path): bool
+    {
+        $path = realpath($path);
+        
+        return is_dir($path)
+            && is_file($path . '/hyde')
+            && is_file($path . '/config/hyde.php');
+    }
 }
