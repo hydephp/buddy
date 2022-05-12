@@ -9,6 +9,7 @@ use Livewire\Component;
 class HydeManager extends Component
 {
     // State
+    public bool $needsInitialization = false;
     public int $formProgress = 1;
     
     // Input
@@ -17,6 +18,11 @@ class HydeManager extends Component
 
     // Data
     public string $hydePath;
+
+    public function mount(Buddy $buddy)
+    {
+        $this->needsInitialization = ! $buddy->hasHydeInstance();
+    }
 
     public function findHydeProject()
     {
