@@ -6,6 +6,20 @@ Bridging the gap between flatfile content managment and a traditional CMS.
 
 ## About
 
+Hyde Buddy is a psuedo-content management system that is built to be a companion to
+developers building sites using [HydePHP](https://hydephp.github.io/).
+
+Buddy is not at all a required software as Hyde is already incredibly simple and easy to use,
+however, Buddy will be especially helpful to manage large Hyde sites and will include
+features like realtime Markdown editing, and more.
+
+## Usage
+
+Buddy is installed as a Laravel application, and is going to be bundled with an executable
+in the future. Buddy must be installed on the same system as your Hyde project, as it is
+a local development tool that must be able to communicate with the HydeCLI. 
+
+
 ### Attributions
 
 #### Frontend
