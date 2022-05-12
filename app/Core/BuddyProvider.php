@@ -45,9 +45,9 @@ class BuddyProvider implements Buddy
 
     // Accessor methods
 
-    public function hyde(): Hyde
+    public function getInstance(): Buddy
     {
-        return $this->getHydeInstance();
+        return $this;
     }
 
     public function getHydeInstance(): Hyde
@@ -57,5 +57,10 @@ class BuddyProvider implements Buddy
         }
 
         return $this->hyde;
+    }
+
+    public function hyde(): Hyde
+    {
+        return $this->getHydeInstance();
     }
 }

@@ -13,6 +13,7 @@ interface Buddy
     public function constructHydeInstance(): void;
 
     // Accessor methods
+    public function getInstance(): Buddy;
     public function getHydeInstance(): Hyde;
     public function hyde(): Hyde;
 }
