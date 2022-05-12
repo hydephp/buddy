@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace App\Core\Contracts;
+
+use App\Core\Hyde;
 
 interface Buddy
 {

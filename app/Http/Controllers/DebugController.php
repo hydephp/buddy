@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Buddy;
+use App\Core\Contracts\Buddy;
 
 class DebugController extends Controller
 {

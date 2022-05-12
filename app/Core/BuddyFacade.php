@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Core\Contracts\Buddy;
 use Illuminate\Support\Facades\Facade;
 
 class BuddyFacade extends Facade

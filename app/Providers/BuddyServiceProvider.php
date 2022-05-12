@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Core\Buddy;
 use App\Core\BuddyProvider;
+use App\Core\Contracts\Buddy;
 use Illuminate\Support\ServiceProvider;
 
 class BuddyServiceProvider extends ServiceProvider

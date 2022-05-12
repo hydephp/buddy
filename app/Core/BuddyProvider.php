@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Core\Concerns\IsIdentifiable;
+use App\Core\Contracts\Buddy;
 
 /**
  * Primary interface implementation for interacting with the Hyde Buddy.
