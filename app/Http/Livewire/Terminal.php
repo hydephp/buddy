@@ -38,9 +38,14 @@ class Terminal extends Component
         $output = $this->artisan($command);
         foreach (explode("\n", $output) as $line) {
             if (trim($line) !== '') {
-                $this->lineOut($line);
+                $this->lineOut($this->stripAnsi($line));
             }
         }
+    }
+
+    protected function stripAnsi(string $line)
+    {
+        return preg_replace('/\x1b\[\d+m/', '', $line);
     }
 
     public function render()
