@@ -20,7 +20,7 @@
                     <h6 class="mb-0">Hyde Installation Details</h6>
                 </div>
                 <div class="card-body p-3">
-                    <x-hyde-installation-details />
+                    <livewire:hyde-installation-details />
                 </div>
             </div>
         </section>

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\View\Components;
+namespace App\Http\Livewire;
 
+use Livewire\Component;
 use App\Core\Contracts\Buddy;
-use Illuminate\View\Component;
 
 class HydeInstallationDetails extends Component
 {
     public array $details = [];
 
-    public function __construct(Buddy $buddy)
+    public function load(Buddy $buddy)
     {
         $this->addDetail('Project Directory', $buddy->hyde()->getPath());
         $this->parseDebugScreen($buddy->hyde()->artisan('debug --no-ansi'));
@@ -42,6 +42,6 @@ class HydeInstallationDetails extends Component
 
     public function render()
     {
-        return view('components.hyde-installation-details');
+        return view('livewire.hyde-installation-details');
     }
 }
