@@ -19,22 +19,28 @@ class Terminal extends Component
 
     public function bootConsole()
     {
-        $this->lineOut($this->artisan('list --no-ansi'));
+        $this->call('list --no-ansi');
     }
 
     public function sendCommand()
     {
-        // Call command
-
-        // Clear input
+        $this->call($this->command);
         $this->command = '';
-
-        // Update lines
     }
 
-    public function lineOut(string $line = '')
+    protected function lineOut(string $line = '')
     {
         $this->lines[] = $line;
+    }
+
+    protected function call(string $command)
+    {
+        $output = $this->artisan($command);
+        foreach (explode("\n", $output) as $line) {
+            if (trim($line) !== '') {
+                $this->lineOut($line);
+            }
+        }
     }
 
     public function render()

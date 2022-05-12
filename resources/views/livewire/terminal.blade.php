@@ -15,7 +15,7 @@
         <div class="input-group terminal-input">
             <span class="input-group-text opacity-8">php hyde</span>
             <input type="search" class="form-control px-2" id="command" wire:model.defer="command" placeholder="Enter a command" required  wire:loading.attr="disabled">
-            <button type="submit" class="my-0 btn btn-dark"  wire:loading.attr="disabled"> Send </button>
+            <button type="submit" class="my-0 btn btn-dark" wire:loading.attr="disabled">Send</button>
         </div>
     </form>
 
