@@ -2,11 +2,15 @@
 
 namespace App\Core;
 
+use App\Core\Concerns\InteractsWithProject;
+
 /**
  * Contains information about the current Hyde project installation.
  */
 class Hyde
 {
+    use InteractsWithProject;
+
     protected string $path;
 
     public function getPath(): string
@@ -27,7 +31,7 @@ class Hyde
     public static function isThisAValidHydeProjectPath(string $path): bool
     {
         $path = realpath($path);
-        
+
         return is_dir($path)
             && is_file($path . '/hyde')
             && is_file($path . '/config/hyde.php');
