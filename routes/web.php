@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/readme', ReadmeController::class)->name('readme');
-Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard')->middleware('initialized');
 
 Route::get('/debug', DebugController::class);
