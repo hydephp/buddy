@@ -36,3 +36,7 @@ a {
 .form-check-input:focus {
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,.75);
 }
+
+.w-fit {
+    width: fit-content;
+}
