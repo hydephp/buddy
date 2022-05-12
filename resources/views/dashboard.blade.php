@@ -3,7 +3,7 @@
         {{ config('app.name') }} Dashboard
     </x-slot>
     
-    <header class="px-4 py-4 my-5 text-center">
+    <header class="px-4 py-4 mt-5 text-center">
         <h1 class="text-3xl font-bold">
             {{ config('app.name') }} Dashboard
         </h1>
@@ -14,7 +14,7 @@
     </header>
     
     <div class="col-12 container d-flex flex-wrap justify-content-center">
-        <section class="col-auto m-4">
+        <section class="col-12 m-4">
             <div class="card">
                 <div class="card-header pb-0 p-3">
                     <h6 class="mb-0">Hyde Installation Details</h6>
@@ -25,7 +25,7 @@
             </div>
         </section>
 
-        <section class="col-lg-6 m-4">
+        <section class="col-12 m-4">
             <div class="card">
                 <div class="card-header pb-0 p-3 d-flex align-items-center justify-content-between">
                     <h5 class="mb-0">Content Explorer</h5>
