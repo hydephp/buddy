@@ -1,6 +1,29 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+}
+
 label {
-	font-size: .825rem;
+	font-size: .9rem;
+	font-weight: 600;
 }
 .form-control-lg {
 	font-size: .9rem;
+}
+
+.text-std {
+	font-size: 15px;
+}
+
+a {
+	color: #5e72e4;
+}
+
+.my-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
 }
