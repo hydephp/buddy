@@ -27,3 +27,8 @@ a {
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
 }
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:after{
+	font-family: unset;
+    content: "✔";
+}
