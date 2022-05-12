@@ -16,11 +16,19 @@
     <div class="col-12 container d-flex flex-wrap justify-content-center">
         <section class="col-12 m-4">
             <div class="card">
+                <section>
+                    <div class="card-header pb-0 p-3">
+                        <h6 class="mb-0">Hyde Installation Details</h6>
+                    </div>
+                    <div class="card-body p-3 pb-0">
+                        <livewire:hyde-installation-details />
+                    </div>
+                </section>
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0">Hyde Installation Details</h6>
+                    <h6 class="mb-0">Quick Actions</h6>
                 </div>
                 <div class="card-body p-3 pb-0">
-                    <livewire:hyde-installation-details />
+                    <livewire:action-toolbar />
                 </div>
             </div>
         </section>
