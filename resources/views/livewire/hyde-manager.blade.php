@@ -1,5 +1,5 @@
 <section>
-    @if(! Buddy::hasHydeInstance())
+    @if($needsInitialization)
     <div class="container mx-auto mb-8">
         <header class="text-center mb-4">
             <h2>Hyde Setup Manager</h2>
@@ -81,6 +81,16 @@
                 <p class="text-std">
                     Your project is being set up. This may take a few seconds.
                 </p>
+                
+
+                @if(Buddy::hasHydeInstance())
+                    <h4 class="h5">Buddy has been set up successfully!</h4>
+
+                    <div>
+                        <a href="/dashboard" class="btn btn-success ms-2">Go to Dashboard</a>
+                        <a href="https://twitter.com/intent/tweet?text={{ urlencode('I just set up Buddy for #HydePHP! You can try it too: https://github.com/hydephp/buddy') }}" class="btn btn-outline-info" target="_blank">Share on Twitter</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
