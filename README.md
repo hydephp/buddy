@@ -1,6 +1,8 @@
 # Hyde Buddy - Canary Alpha Release
 
+<p class="lead">
 Bridging the gap between flatfile content managment and a traditional CMS.
+</p>
 
 ## About
 
