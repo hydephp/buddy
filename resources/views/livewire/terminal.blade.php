@@ -25,7 +25,7 @@
             height: 100%;
             min-width: 400px;
             min-height: 300px;
-            max-height: 400px;
+            max-height: 600px;
             background-color: #292D3E;
             overflow-y: auto;
             padding: 8px 10px;
