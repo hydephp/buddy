@@ -1,11 +1,43 @@
 <div wire:init="load">
-    <h5 wire:loading>Loading...</h5>
-    <dl wire:loading.attr="hidden" class="d-flex">
-        @foreach($details as $key => $value)
-           <div class="pe-5">
-                <dt class="mb-0 text-dark text-sm">{{ $key }}</dt>
-                <dd class="text-sm">{{ $value }}</dd>
-           </div>
-        @endforeach
-    </ul>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="text-dark text-sm fw-medium p-2 border">
+                    Project Directory
+                </th>
+                <th class="text-dark text-sm fw-medium p-2 border">
+                    Hyde Version
+                </th>
+                <th class="text-dark text-sm fw-medium p-2 border">
+                    Framework Version
+                </th>
+                <th class="text-dark text-sm fw-medium p-2 border">
+                    PHP Version
+                </th>
+                <th class="text-dark text-sm fw-medium p-2 border">
+                    HydeRC Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-sm p-2 border">
+                    {{ $details['Project Directory'] ?? 'Loading...' }}
+                </th>
+                <td class="text-sm p-2 border">
+                    {{ $details['Hyde Version'] ?? 'Loading...' }}
+                </th>
+                <td class="text-sm p-2 border">
+                    {{ $details['Framework Version'] ?? 'Loading...' }}
+                </th>
+                <td class="text-sm p-2 border">
+                    {{ $details['PHP Version'] ?? 'Loading...' }}
+                </th>
+             
+                <td class="text-sm p-2 border">
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
