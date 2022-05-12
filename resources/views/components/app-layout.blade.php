@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
         <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css?v=2.0.2') }}" rel="stylesheet" />
+
+        @livewireStyles
     </head>
     <body class="g-sidenav-show bg-gray-100">
         <main>
@@ -22,6 +24,8 @@
 
         <!-- Control Center for Argon Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="{{ asset('assets/js/argon-dashboard.min.js') }}"></script>
+
+        @livewireScripts
     </body>
 </html>
 
