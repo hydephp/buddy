@@ -15,7 +15,6 @@ use App\Http\Controllers\Api\Actions\CompileStaticSite;
 |
 */
 
-
 Route::get('/actions/compile-static-site', CompileStaticSite::class)
     ->middleware('initialized')
     ->name('api.actions.compile-static-site');
