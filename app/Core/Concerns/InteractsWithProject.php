@@ -21,4 +21,12 @@ trait InteractsWithProject
     {
         return shell_exec('cd '.$this->getPath().' && php hyde ' . $command);
     }
+
+    /**
+     * Run a command in the project's HydeCLI and stream the output.
+     */
+    public function passthru(string $command): void
+    {
+        passthru('cd '.$this->getPath().' && php hyde ' . $command);
+    }
 }
