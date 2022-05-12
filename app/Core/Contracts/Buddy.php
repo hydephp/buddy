@@ -13,6 +13,7 @@ interface Buddy
     // Initialization methods
     public function initialize(): void;
     public function constructHydeInstance(): void;
+    public function getPersisted(): void;
     public function persist(): void;
 
     // Accessor methods

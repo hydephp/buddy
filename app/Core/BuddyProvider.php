@@ -38,13 +38,21 @@ class BuddyProvider implements Buddy
 
     public function initialize(): void
     {
-        $this->constructHydeInstance();
+        $this->getPersisted();
         $this->initialized = true;
     }
 
     public function constructHydeInstance(): void
     {
-        $this->hyde = Cache::get(Hyde::class) ?? new Hyde();
+        $this->hyde = new Hyde();
+    }
+
+    public function getPersisted(): void
+    {
+        $hyde = Cache::get(Hyde::class);
+        if ($hyde !== null && $hyde->hasPath()) {
+            $this->hyde = $hyde;
+        }
     }
 
     public function persist(): void
