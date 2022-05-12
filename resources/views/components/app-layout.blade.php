@@ -25,7 +25,9 @@
             </div>
         @endif
 
-        <main>
+        <livewire:sidebar />
+
+        <main style="width: calc(100vw - 400px); margin-left: 300px;">
             {{ $slot }}
         </main>
 
