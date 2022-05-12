@@ -13,13 +13,13 @@
         </p>
     </header>
     
-    <div class="d-flex flex-wrap justify-content-center">
-        <section class="col-lg-4 m-4">
+    <div class="col-12 container d-flex flex-wrap justify-content-center">
+        <section class="col-auto m-4">
             <div class="card">
                 <div class="card-header pb-0 p-3">
                     <h6 class="mb-0">Hyde Installation Details</h6>
                 </div>
-                <div class="card-body p-3">
+                <div class="card-body p-3 pb-0">
                     <livewire:hyde-installation-details />
                 </div>
             </div>
