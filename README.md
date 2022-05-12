@@ -19,6 +19,15 @@ Buddy is installed as a Laravel application, and is going to be bundled with an 
 in the future. Buddy must be installed on the same system as your Hyde project, as it is
 a local development tool that must be able to communicate with the HydeCLI. 
 
+## System Requirements
+
+- PHP 8.0 or higher
+- A JavaScript enabled browser
+- Desktop or laptop device capable of running PHP application servers
+- Monitor with a minimum resolution of 720p. 1080p or higher is recommended
+- Composer (when installing from source)
+
+
 ## Roadmap
 
 * [ ] Add realtime Markdown editing
