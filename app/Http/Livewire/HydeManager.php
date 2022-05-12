@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Core\Contracts\Buddy;
 use App\Core\Hyde;
 use Livewire\Component;
 
@@ -32,10 +33,16 @@ class HydeManager extends Component
         $this->formProgress = 2;
     }
 
-    public function setup()
+    public function setup(Buddy $buddy)
     {
         $this->formProgress = 3;
 
+        if ($buddy->hasHydeInstance()) {
+            throw new \Exception('Buddy already has a Hyde instance. Did you already finish setup in another tab?', 409);
+        }
+
+        $buddy->constructHydeInstance();
+        $buddy->getHydeInstance()->setPath($this->hydePath);
     }
 
     public function render()
