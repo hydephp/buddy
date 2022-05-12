@@ -49,6 +49,7 @@ class HydeManager extends Component
 
         $buddy->constructHydeInstance();
         $buddy->getHydeInstance()->setPath($this->hydePath);
+        $buddy->persist();
     }
 
     public function render()

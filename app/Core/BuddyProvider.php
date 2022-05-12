@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Core\Concerns\IsIdentifiable;
 use App\Core\Contracts\Buddy;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * Primary interface implementation for interacting with the Hyde Buddy.
@@ -37,12 +38,18 @@ class BuddyProvider implements Buddy
 
     public function initialize(): void
     {
+        $this->constructHydeInstance();
         $this->initialized = true;
     }
 
     public function constructHydeInstance(): void
     {
-        $this->hyde = new Hyde();
+        $this->hyde = Cache::get(Hyde::class) ?? new Hyde();
+    }
+
+    public function persist(): void
+    {
+        Cache::store('file')->put(Hyde::class, $this->hyde);
     }
 
     // Accessor methods
