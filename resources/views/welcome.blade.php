@@ -11,4 +11,8 @@
             </p>
         </div>
     </header>
+
+    <section>
+        <livewire:hyde-manager />
+    </section>
 </x-app-layout>
