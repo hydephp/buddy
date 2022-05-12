@@ -207,7 +207,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Buddy' => App\Core\BuddyFacade::class,
     ])->toArray(),
 
 ];
