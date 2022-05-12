@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Actions\CompileStaticSite;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/actions/compile-static-site', CompileStaticSite::class)
+    ->middleware('initialized')
+    ->name('api.actions.compile-static-site');

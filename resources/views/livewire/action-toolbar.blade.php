@@ -3,7 +3,9 @@
         <button class="btn btn-primary py-1 px-3 me-2">Create new file</button>
     </li>
     <li>
-        <button class="btn btn-warning py-1 px-3 me-2">Compile static site</button>
+        <button onclick="window.open('{{ route('api.actions.compile-static-site') }}', 'popup', 'width=800, height=600')" target="popup" class="btn btn-warning py-1 px-3 me-2">
+            Compile static site
+        </a>
     </li>
     <li wire:loaded="ping">
         @if($serverActive)
