@@ -6,10 +6,10 @@
         @if($loaded)
             @switch($status)
                 @case(0)
-                    <span title="Could not connect to the server.">
+                    <a href="javascript:void(null);" wire:click="ping" title="Click to refresh" class="text-secondary">
                         Server Offline
-                    </span>    
-                    <span class="text-gray fw-bold" role="presentation">&bullet;</span>
+                    </a>    
+                    <span class="text-secondary fw-bold" role="presentation">&bullet;</span>
                     @break
                 @case(200)
                     <a href="javascript:void(null);" wire:click="ping" title="Click to refresh" class="fw-medium text-success">
