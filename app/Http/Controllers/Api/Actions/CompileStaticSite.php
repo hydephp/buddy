@@ -32,7 +32,7 @@ class CompileStaticSite extends Controller
         echo '<h2>Initiating build loop</h2>';
         echo '<h3>This may take a while... Feed might seem unresponsive. Do not reload.</h3>';
         echo '<h4>Your application terminal may contain extra debug output.</h4>';
-        $this->passthru('build');
+        $this->passthru('build --no-api'); // @todo allow toggling of api calls
 
         echo "\n<h2>Done. Finished in " . round((microtime(true) - $time_start) * 1000, 2). "ms</h2>\n";
     }
