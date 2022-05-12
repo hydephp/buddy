@@ -86,8 +86,8 @@
                 @if(Buddy::hasHydeInstance())
                     <h4 class="h5">Buddy has been set up successfully!</h4>
 
-                    <div>
-                        <a href="/dashboard" class="btn btn-success ms-2">Go to Dashboard</a>
+                    <div class="mt-3">
+                        <a href="{{ route('dashboard') }}" class="btn btn-success me-2">Go to Dashboard</a>
                         <a href="https://twitter.com/intent/tweet?text={{ urlencode('I just set up Buddy for #HydePHP! You can try it too: https://github.com/hydephp/buddy') }}" class="btn btn-outline-info" target="_blank">Share on Twitter</a>
                     </div>
                 @endif
