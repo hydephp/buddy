@@ -16,16 +16,16 @@
             @if($formProgress >= 1)
             <h3 class="h5">
                 1. Let's find your Hyde project!
+                @if($formProgress > 1)
+                ✔
+                @endif
             </h3>
             <form wire:submit.prevent="findHydeProject">
                 <div class="form-group">
                     <label for="path" class="ms-0">
                         Please enter the full path to your Hyde project
-                        @if($formProgress > 1)
-                        ✅
-                        @endif
                     </label>
-                    <div class="input-group" @if($formProgress > 1) title="Please refresh your page to change the path" @endif>
+                    <div class="input-group" @if($formProgress > 1) title="Please refresh your page to make changes" @endif>
                         <input type="text" class="form-control form-control-lg @error('path') is-invalid @enderror" id="path" wire:model="path" placeholder="e.g. C:\Users\Hyde\Desktop\MyNewHydeProject" required @disabled($formProgress > 1)>
                         <button type="submit" @class([ 'my-0 btn', 'btn-primary' => $formProgress <= 1, 'btn-success' => $formProgress > 1, ]) @disabled($formProgress > 1)> Find Project </button>
                     </div>
@@ -43,6 +43,9 @@
             
             <h3 class="h5">
                 2. Quick heads up before we proceed!
+                @if($formProgress > 2)
+                ✔
+                @endif
             </h3>
             <p class="text-std">
                 <b>The Hyde Buddy is incredibly much in alpha</b>. While I'm really excited that you want to try it out,
@@ -53,16 +56,17 @@
                 <a href="https://github.com/hydephp/buddy">github.com/hydephp/buddy</a>!
             </p>
             <form wire:submit.prevent="setup">
-                <div class="form-group my-2">
-                    <div class="d-flex align-items-center">
+                <div class="form-group my-2 mt-4">
+                    <div class="d-flex align-items-center" @if($formProgress > 2) title="Please refresh your page to make changes" @endif>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="terms" wire:model="terms" required>
+                            <input type="checkbox" class="form-check-input" id="terms" wire:model="terms" required @disabled($formProgress > 2)>
                             <label class="form-check-label pe-4 mb-0" for="terms">
-                                I understand that I am using this software at my own risk and I also accept the terms of
+                                I understand that I am using this software at my own risk and would like to continue.
+                                I also accept the terms of
                                 <a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md" target="_blank">the MIT License agreement</a>.
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-warning my-0">Proceed</button>
+                        <button type="submit" class="btn btn-warning my-0" @disabled($formProgress > 2)>Proceed</button>
                     </div>
                 </div>
             </form>
