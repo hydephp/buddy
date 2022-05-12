@@ -52,6 +52,12 @@ class HydeManager extends Component
         $buddy->persist();
     }
 
+    public function killHyde(Buddy $buddy)
+    {
+        cache()->forget(Hyde::class);
+        return redirect()->to('/');
+    }
+
     public function render()
     {
         return view('livewire.hyde-manager');
