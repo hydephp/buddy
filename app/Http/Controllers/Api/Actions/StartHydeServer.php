@@ -16,7 +16,7 @@ class StartHydeServer extends Controller
         }
 
         $script = $this->getScript();
-        echo 'Script path: ' . $script . "\n";
+        echo 'Running script from path: ' . $script . "\n";
 
         pclose( popen( $script, 'r' ) );
     }
@@ -25,7 +25,9 @@ class StartHydeServer extends Controller
     {
         $scriptPath = base_path('bin/gen/serve-' . sha1(BuddyFacade::hyde()->getPath()) . '.bat');
         
-        $this->createScript($scriptPath);
+        if (!file_exists($scriptPath)) {
+            $this->createScript($scriptPath);
+        }
 
         return $scriptPath;
     }
