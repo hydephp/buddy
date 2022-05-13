@@ -6,6 +6,8 @@ use Hyde\Framework\Hyde;
 use Hyde\Framework\MarkdownPostParser;
 use Hyde\Framework\Models\MarkdownPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class PostController extends Controller
 {
@@ -116,5 +118,24 @@ class PostController extends Controller
             file_get_contents(Hyde::path('_posts/' . $slug . '.md')),
             200, ['Content-Type' => 'text/markdown']
         ); 
+    }
+
+    public function html(string $slug)
+    {
+        $html = Str::markdown(
+            YamlFrontMatter::markdownCompatibleParse(
+                file_get_contents(Hyde::path('_posts/' . $slug . '.md'))
+            )->body()
+        );
+
+        if (! request()->has('download')) {
+            $html = '<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Post Preview</title><style>body{max-width: 800px;}</style></head><body>'
+                . $html . '</body></html>';
+        }
+
+        return response(
+            $html,
+            200, ['Content-Type' => 'text/html']
+        );
     }
 }

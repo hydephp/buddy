@@ -86,12 +86,18 @@
                                 <dd>
 			                        <a href="{{ route('api.posts.json', $post->slug) }}?pretty=true" target="_blank">JSON Object</a>
                                 </dd>
+                                <dd>
+			                        <a href="{{ route('api.posts.html', $post->slug) }}" target="_blank">Basic HTML</a>
+                                </dd>
                                 <dt class="mt-2">Download Post:</dt>
                                 <dd>
                                     <a href="{{ route('api.posts.markdown', $post->slug) }}" download="">Markdown</a>
                                 </dd>
                                 <dd>
                                     <a href="{{ route('api.posts.json', $post->slug) }}?pretty=true" download="">JSON Object</a>
+                                </dd>
+                                <dd>
+                                    <a href="{{ route('api.posts.html', $post->slug) }}?download=true" download="">Basic HTML</a>
                                 </dd>
                             </dl>
                         </dd>

@@ -33,6 +33,10 @@ Route::middleware('initialized')->group(function () {
     Route::get('/posts/{slug}.md', function (string $slug) {
         return (new PostController)->markdown($slug);
     })->name('api.posts.markdown');
+    
+    Route::get('/posts/{slug}.html', function (string $slug) {
+        return (new PostController)->html($slug);
+    })->name('api.posts.html');
 });
 
 Route::get('/debug', DebugController::class);
