@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Actions\CompileStaticSite;
+use App\Http\Controllers\Api\Actions\StartHydeServer;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,8 @@ use App\Http\Controllers\Api\Actions\CompileStaticSite;
 Route::get('/actions/compile-static-site', CompileStaticSite::class)
     ->middleware('initialized')
     ->name('api.actions.compile-static-site');
+
+
+Route::get('/actions/start-hyde-server', StartHydeServer::class)
+    ->middleware('initialized')
+    ->name('api.actions.start-hyde-server');

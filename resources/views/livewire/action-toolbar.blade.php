@@ -10,18 +10,22 @@
     <li wire:init="ping">
         @if($serverActive)
         <style>#quickactions-live-link {display: inline;}</style>
-        <button class="btn btn-danger py-1 px-3 me-2" wire:click="stopServer" wire:loading.attr="disabled"></span>
-            <span wire:loading.remove>Stop Server</span>
-            <span wire:loading>Loading status...</span>
+        <button class="btn btn-danger py-1 px-3 me-2" wire:loading.remove></span>
+            Stop Server
+        </button>
+        <button class="btn btn-gray py-1 px-3 me-2" wire:loading disabled>
+            Loading status...
         </button>
         <button class="btn btn-secondary py-1 px-3 me-2"></span>
             <span>See Terminal Feed</span>
         </button>
         @else
         <style>#quickactions-live-link {display: none;}</style>
-        <button class="btn btn-success py-1 px-3 me-2" wire:click="startServer" wire:loading.attr="disabled"></span>
-            <span wire:loading.remove>Start Server</span>
-            <span wire:loading>Loading status...</span>
+        <a href="{{ route('api.actions.start-hyde-server') }}" target="_blank" class="btn btn-success py-1 px-3 me-2" wire:loading.remove></span>
+           Start Server
+        </a>
+        <button class="btn btn-gray py-1 px-3 me-2" wire:loading disabled>
+            Loading status...
         </button>
         @endif
     </li>
