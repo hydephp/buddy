@@ -64,17 +64,20 @@
                         </dt>
                         <dd id="post-information">
                             <dl>
-                                    @isset($post->date)
-                                        <dt>Date:</dt>
-                                        <dd>{{ $post->date->sentence }}</dd>
-                                    @endisset
-                                    @isset($post->category)
-                                        <dt>Category:</dt>
-                                        <dd>{{ $post->category }}</dd>
-                                    @endisset
-                                    <dt>Slug:</dt>
-                                    <dd>{{ $post->slug }}</dd>
-                                </dl>
+                                @isset($post->author)
+                                    <dt>Author</dt>
+                                    <dd>{{ $post->author->name ?? $post->author->username }}</dd>
+                                @endisset
+                                @isset($post->date)
+                                    <dt>Date:</dt>
+                                    <dd>{{ $post->date->sentence }}</dd>
+                                @endisset
+                                @isset($post->category)
+                                    <dt>Category:</dt>
+                                    <dd>{{ $post->category }}</dd>
+                                @endisset
+                                <dt>Slug:</dt>
+                                <dd>{{ $post->slug }}</dd>
                             </dl>
                         </dd>
 
