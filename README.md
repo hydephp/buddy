@@ -27,6 +27,12 @@ a local development tool that must be able to communicate with the HydeCLI.
 - Monitor with a minimum resolution of 720p. 1080p or higher is recommended
 - Composer (when installing from source)
 
+## Warning ⚠
+
+**Never** install this on production systems. It's a local-only development tool
+that edits the filesystem and runs executables. While I've locked down access
+to only access the current project, that is more intended as a way to prevent
+accidental changes to unrelated projects and files.
 
 ## Roadmap
 
