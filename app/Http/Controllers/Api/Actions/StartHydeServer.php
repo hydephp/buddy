@@ -18,7 +18,7 @@ class StartHydeServer extends Controller
         $script = $this->getScript();
         echo 'Script path: ' . $script . "\n";
 
-        exec($script);
+        pclose( popen( $script, 'r' ) );
     }
 
     protected function getScript(): string
