@@ -51,171 +51,176 @@
                 </article>
                 <aside class="card-body col-4 mx-auto">
                     <div class="mb-3">
-                        <h5 class="d-inline pe-2">Post Metadata</h5>
-        
-                        <dl class="mt-3">
-                            <dt>
-                                General
-                            </dt>
-                            <dd>
-                                @isset($post->date)
-                                <dl>
-                                    <dt>Date:</dt>
-                                    <dd>{{ $post->date->sentence }}</dd>
-                                </dl>
-                                @endisset
-                                @isset($post->category)
-                                <dl>
-                                    <dt>Category:</dt>
-                                    <dd>{{ $post->category }}</dd>
-                                </dl>
-                                @endisset
-                                <dl>
-                                    <dt>Slug:</dt>
-                                    <dd>{{ $post->slug }}</dd>
-                                </dl>
-                            </dd>
-
-                            @if($post->author)
+                        <details open>
+                            <summary>
+                                <h5 class="d-inline pe-2">Post Metadata</h5>
+                            </summary>
+                            <dl class="mt-3">
                                 <dt>
-                                    Author:
+                                    General
                                 </dt>
                                 <dd>
+                                    @isset($post->date)
                                     <dl>
-                                        @foreach ($post->author as $key => $value)
-                                            @unless(empty($value))
-                                                <dt>{{ $key }}</dt>
-                                                <dd>{{ $value }}</dd>
-                                            @endunless
-                                        @endforeach
+                                        <dt>Date:</dt>
+                                        <dd>{{ $post->date->sentence }}</dd>
+                                    </dl>
+                                    @endisset
+                                    @isset($post->category)
+                                    <dl>
+                                        <dt>Category:</dt>
+                                        <dd>{{ $post->category }}</dd>
+                                    </dl>
+                                    @endisset
+                                    <dl>
+                                        <dt>Slug:</dt>
+                                        <dd>{{ $post->slug }}</dd>
                                     </dl>
                                 </dd>
-                            @endif
-
-                            @if($post->metadata)
-                                <dt>
-                                    Metadata:
-                                </dt>
-                                <dd>
-                                    <dl>
-                                        @foreach ($post->metadata as $key => $value)
-                                            @unless(empty($value))
-                                            <details>
-                                                <summary>Show {{ $key }}</summary>
-                                                <dl>
-                                                    @foreach ($value as $name => $content)
-                                                        <dt>{{ $name }}</dt>
-                                                        <dd>{{ $content }}</dd>
-                                                    @endforeach
-                                                </dl>
-                                            </details>
-                                            @endunless
-                                        @endforeach
-                                    </dl>
-                                </dd>
-                            @endif
-
-                            @if($post->image)
-                                <dt>
-                                    Image:
-                                </dt>
-                                <dd>
+    
+                                @if($post->author)
+                                    <dt>
+                                        Author:
+                                    </dt>
                                     <dd>
-                                        <details>
-                                            <summary><b>Show computed</b></summary>
-                                            <dl>
-                                                <dt>
-                                                    Author Credit:
-                                                </dt>
-                                                <dd>
-                                                    {!! $post->image->getImageAuthorAttributionString() !!}
-                                                </dd>
-                                            
-                                                @isset($post->image->copyright)
-                                                    <dt>
-                                                        Copyright:
-                                                    </dt>
-                                                    <dd>
-                                                        {!! $post->image->getCopyrightString() !!}
-                                                    </dd>
-                                                @endisset
-                                                @isset($post->image->license)
-                                                    <dt>
-                                                        License:
-                                                    </dt>
-                                                    <dd>
-                                                        {!! $post->image->getLicenseString() !!}
-                                                    </dd>
-                                                @endisset
-                                                <dt>
-                                                    Attribution:
-                                                </dt>
-                                                <dd>
-                                                    {!! $post->image->getFluentAttribution() !!}
-                                                </dd>
-                                            </dl>
-                                        </details>
-                                        
-
+                                        <dl>
+                                            @foreach ($post->author as $key => $value)
+                                                @unless(empty($value))
+                                                    <dt>{{ $key }}</dt>
+                                                    <dd>{{ $value }}</dd>
+                                                @endunless
+                                            @endforeach
+                                        </dl>
                                     </dd>
+                                @endif
+    
+                                @if($post->metadata)
+                                    <dt>
+                                        Metadata:
+                                    </dt>
                                     <dd>
-                                        <details>
-                                            <summary><b>Show raw properties</b></summary>
-                                            <dl>
-                                                @foreach ($post->image as $key => $value)
-                                                    @unless(empty($value))
-                                                        <dt>{{ $key }}</dt>
-                                                        <dd>{{ $value }}</dd>
-                                                    @endunless
-                                                @endforeach
-                                            </dl>
-                                        </details>
-                                    </dd>
-                                    <dd>
-                                        <details>
-                                            <summary><b>Show metadata</b></summary>
-                                            <dl>
-                                                @foreach ($post->image->getMetadataArray() as $key => $value)
-                                                    @unless(empty($value))
-                                                        <dt>{{ $key }}</dt>
-                                                        <dd>{{ $value }}</dd>
-                                                    @endunless
-                                                @endforeach
-                                            </dl>
-                                        </details>
-                                    </dd>
-                                </dd>
-                            @endif
-                        </dl>
-
-                        <h5 class="d-inline pe-2">Front Matter</h5>
-                        <dl class="mt-3">
-                            <dl>
-                                <dt></dt>
-                                <dd>
-                                    @foreach ($post->matter as $key => $value)
-                                        @unless(empty($value) || $key === 'slug')
-                                            @if(is_array($value) || is_object($value))
+                                        <dl>
+                                            @foreach ($post->metadata as $key => $value)
+                                                @unless(empty($value))
                                                 <details>
-                                                    <summary>Show {{ $key }} array</summary>
+                                                    <summary>Show {{ $key }}</summary>
                                                     <dl>
                                                         @foreach ($value as $name => $content)
-                                                        <dt>{{ $name }}</dt>
-                                                        <dd>{{ $content }}</dd>
+                                                            <dt>{{ $name }}</dt>
+                                                            <dd>{{ $content }}</dd>
                                                         @endforeach
                                                     </dl>
                                                 </details>
-                                            @else
-                                            <dl>
-                                                <dt>{{ $key }}</dt>
-                                                <dd>{{ $value }}</dd>
-                                            </dl>
-                                            @endif
-                                        @endunless
-                                    @endforeach
-                                </dd>
+                                                @endunless
+                                            @endforeach
+                                        </dl>
+                                    </dd>
+                                @endif
+    
+                                @if($post->image)
+                                    <dt>
+                                        Image:
+                                    </dt>
+                                    <dd>
+                                        <dd>
+                                            <details>
+                                                <summary><b>Show computed</b></summary>
+                                                <dl>
+                                                    <dt>
+                                                        Author Credit:
+                                                    </dt>
+                                                    <dd>
+                                                        {!! $post->image->getImageAuthorAttributionString() !!}
+                                                    </dd>
+                                                
+                                                    @isset($post->image->copyright)
+                                                        <dt>
+                                                            Copyright:
+                                                        </dt>
+                                                        <dd>
+                                                            {!! $post->image->getCopyrightString() !!}
+                                                        </dd>
+                                                    @endisset
+                                                    @isset($post->image->license)
+                                                        <dt>
+                                                            License:
+                                                        </dt>
+                                                        <dd>
+                                                            {!! $post->image->getLicenseString() !!}
+                                                        </dd>
+                                                    @endisset
+                                                    <dt>
+                                                        Attribution:
+                                                    </dt>
+                                                    <dd>
+                                                        {!! $post->image->getFluentAttribution() !!}
+                                                    </dd>
+                                                </dl>
+                                            </details>
+                                        </dd>
+                                        <dd>
+                                            <details>
+                                                <summary><b>Show raw properties</b></summary>
+                                                <dl>
+                                                    @foreach ($post->image as $key => $value)
+                                                        @unless(empty($value))
+                                                            <dt>{{ $key }}</dt>
+                                                            <dd>{{ $value }}</dd>
+                                                        @endunless
+                                                    @endforeach
+                                                </dl>
+                                            </details>
+                                        </dd>
+                                        <dd>
+                                            <details>
+                                                <summary><b>Show metadata</b></summary>
+                                                <dl>
+                                                    @foreach ($post->image->getMetadataArray() as $key => $value)
+                                                        @unless(empty($value))
+                                                            <dt>{{ $key }}</dt>
+                                                            <dd>{{ $value }}</dd>
+                                                        @endunless
+                                                    @endforeach
+                                                </dl>
+                                            </details>
+                                        </dd>
+                                    </dd>
+                                @endif
                             </dl>
-                        </dl>
+                        </details>
+
+                        <details open>
+                            <summary>
+                                <h5 class="d-inline pe-2">Front Matter</h5>
+                            </summary>
+                            <dl class="mt-3">
+                                <dl>
+                                    <dt></dt>
+                                    <dd>
+                                        @foreach ($post->matter as $key => $value)
+                                            @unless(empty($value) || $key === 'slug')
+                                                @if(is_array($value) || is_object($value))
+                                                    <details>
+                                                        <summary>Show {{ $key }} array</summary>
+                                                        <dl>
+                                                            @foreach ($value as $name => $content)
+                                                            <dt>{{ $name }}</dt>
+                                                            <dd>{{ $content }}</dd>
+                                                            @endforeach
+                                                        </dl>
+                                                    </details>
+                                                @else
+                                                <dl>
+                                                    <dt>{{ $key }}</dt>
+                                                    <dd>{{ $value }}</dd>
+                                                </dl>
+                                                @endif
+                                            @endunless
+                                        @endforeach
+                                    </dd>
+                                </dl>
+                            </dl>
+                        </details>
                     </div>
                 </aside>
             </section>
