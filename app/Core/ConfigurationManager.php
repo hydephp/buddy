@@ -28,6 +28,11 @@ class ConfigurationManager implements Contracts\BuddyConfiguration
     public function initializeConfigurationObject(): self
     {
         $this->configuration = new \stdClass();
+
+        if (BuddyFacade::hyde()->getPath()) {
+            $this->configuration->path = BuddyFacade::hyde()->getPath();
+        }
+
         $this->storeConfigurationObject();
 
         return $this;
