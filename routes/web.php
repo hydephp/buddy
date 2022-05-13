@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReadmeController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,6 @@ Route::middleware('initialized')->group(function () {
 	Route::get('/dashboard/terminal', [DashboardController::class, 'terminal'])
 		->name('dashboard.terminal');
 	Route::resource('/dashboard/posts', PostController::class);
+
+	Route::resource('/dashboard/settings', SettingsController::class)->only(['index', 'update']);
 });
