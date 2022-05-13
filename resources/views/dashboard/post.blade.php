@@ -54,6 +54,28 @@
                         <h5 class="d-inline pe-2">Post Metadata</h5>
         
                         <dl class="mt-3">
+                            <dt>
+                                General
+                            </dt>
+                            <dd>
+                                @isset($post->date)
+                                <dl>
+                                    <dt>Date:</dt>
+                                    <dd>{{ $post->date->sentence }}</dd>
+                                </dl>
+                                @endisset
+                                @isset($post->category)
+                                <dl>
+                                    <dt>Category:</dt>
+                                    <dd>{{ $post->category }}</dd>
+                                </dl>
+                                @endisset
+                                <dl>
+                                    <dt>Slug:</dt>
+                                    <dd>{{ $post->slug }}</dd>
+                                </dl>
+                            </dd>
+
                             @if($post->author)
                                 <dt>
                                     Author:
