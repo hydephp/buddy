@@ -120,43 +120,44 @@
                                     Image:
                                 </dt>
                                 <dd>
-                                    <dl>
-                                        <dt>
-                                            Author Credit:
-                                        </dt>
-                                        <dd>
-                                            {!! $post->image->getImageAuthorAttributionString() !!}
-                                        </dd>
-                                    </dl>
-                                   
-                                    @isset($post->image->copyright)
-                                    <dl>
-                                        <dt>
-                                            Copyright:
-                                        </dt>
-                                        <dd>
-                                            {!! $post->image->getCopyrightString() !!}
-                                        </dd>
-                                    </dl>
-                                    @endisset
-                                    @isset($post->image->license)
-                                    <dl>
-                                        <dt>
-                                            License:
-                                        </dt>
-                                        <dd>
-                                            {!! $post->image->getLicenseString() !!}
-                                        </dd>
-                                    </dl>
-                                    @endisset
-                                    <dl>
-                                        <dt>
-                                            Attribution:
-                                        </dt>
-                                        <dd>
-                                            {!! $post->image->getFluentAttribution() !!}
-                                        </dd>
-                                    </dl>
+                                    <dd>
+                                        <details>
+                                            <summary><b>Show computed</b></summary>
+                                            <dl>
+                                                <dt>
+                                                    Author Credit:
+                                                </dt>
+                                                <dd>
+                                                    {!! $post->image->getImageAuthorAttributionString() !!}
+                                                </dd>
+                                            
+                                                @isset($post->image->copyright)
+                                                    <dt>
+                                                        Copyright:
+                                                    </dt>
+                                                    <dd>
+                                                        {!! $post->image->getCopyrightString() !!}
+                                                    </dd>
+                                                @endisset
+                                                @isset($post->image->license)
+                                                    <dt>
+                                                        License:
+                                                    </dt>
+                                                    <dd>
+                                                        {!! $post->image->getLicenseString() !!}
+                                                    </dd>
+                                                @endisset
+                                                <dt>
+                                                    Attribution:
+                                                </dt>
+                                                <dd>
+                                                    {!! $post->image->getFluentAttribution() !!}
+                                                </dd>
+                                            </dl>
+                                        </details>
+                                        
+
+                                    </dd>
                                     <dd>
                                         <details>
                                             <summary><b>Show raw properties</b></summary>
