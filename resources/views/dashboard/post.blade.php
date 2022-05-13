@@ -32,6 +32,14 @@
             dl > dd > dl > dd {
                 margin-bottom: 0.25rem;
             }
+            #post-information {
+                margin-left: 0.5rem;
+                margin-top: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+            #post-information dd {
+                margin-bottom: 0;
+            }
         </style>
 
         <div class="col-12 mx-auto p-3 mb-5">
@@ -51,33 +59,32 @@
                 </article>
                 <aside class="card-body col-4 mx-auto">
                     <div class="mb-3">
-                        <details open>
-                            <summary>
-                                <h5 class="d-inline pe-2">Post Metadata</h5>
-                            </summary>
-                            <dl class="mt-3">
-                                <dt>
-                                    General
-                                </dt>
-                                <dd>
+                        <dt>
+                            Post Information
+                        </dt>
+                        <dd id="post-information">
+                            <dl>
                                     @isset($post->date)
-                                    <dl>
                                         <dt>Date:</dt>
                                         <dd>{{ $post->date->sentence }}</dd>
-                                    </dl>
                                     @endisset
                                     @isset($post->category)
-                                    <dl>
                                         <dt>Category:</dt>
                                         <dd>{{ $post->category }}</dd>
-                                    </dl>
                                     @endisset
-                                    <dl>
-                                        <dt>Slug:</dt>
-                                        <dd>{{ $post->slug }}</dd>
-                                    </dl>
-                                </dd>
-    
+                                    <dt>Slug:</dt>
+                                    <dd>{{ $post->slug }}</dd>
+                                </dl>
+                            </dl>
+                        </dd>
+
+                        <hr>
+
+                        <details>
+                            <summary>
+                                <h6 class="d-inline pe-2">Post Metadata</h6>
+                            </summary>
+                            <dl class="mt-3">
                                 @if($post->author)
                                     <dt>
                                         Author:
@@ -189,9 +196,9 @@
                             </dl>
                         </details>
 
-                        <details open>
+                        <details>
                             <summary>
-                                <h5 class="d-inline pe-2">Front Matter</h5>
+                                <h6 class="d-inline pe-2">Front Matter</h6>
                             </summary>
                             <dl class="mt-3">
                                 <dl>
