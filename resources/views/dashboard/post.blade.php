@@ -44,10 +44,15 @@
 
         <div class="col-12 mx-auto p-3 mb-5">
             <section class="card row d-flex flex-row col-12 mx-auto">
-                <header class="card-header pb-0">
+                <header class="card-header d-flex align-items-center justify-content-between pb-0">
                     <h4 class="card-title">
                         {{ $post->title }}
                     </h4>
+                    <a href="{{ route('api.actions.open-file-in-vscode', [
+                        'path' => '_posts/' . $post->slug . '.md',
+                    ]) }}" class="btn btn-primary py-2 px-3">
+                        Open in VSCode
+                    </a>
                 </header>
                 <article class="card-body col-7">
                     <div class="mb-3">

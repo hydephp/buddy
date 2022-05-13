@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DebugController;
 use App\Http\Controllers\Api\Actions\CompileStaticSite;
+use App\Http\Controllers\Api\Actions\OpenFileInVSCode;
 use App\Http\Controllers\Api\Actions\StartHydeServer;
 use App\Http\Controllers\PostController;
 
@@ -25,6 +26,9 @@ Route::middleware('initialized')->group(function () {
 
     Route::get('/actions/start-hyde-server', StartHydeServer::class)
         ->name('api.actions.start-hyde-server');
+
+    Route::get('/actions/open-file-in-vscode', OpenFileInVSCode::class)
+        ->name('api.actions.open-file-in-vscode');
 
     Route::get('/posts/{slug}.json', function (string $slug) {
         return (new PostController)->json($slug);
