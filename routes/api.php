@@ -23,7 +23,6 @@ Route::middleware('initialized')->group(function () {
     Route::get('/actions/compile-static-site', CompileStaticSite::class)
         ->name('api.actions.compile-static-site');
 
-
     Route::get('/actions/start-hyde-server', StartHydeServer::class)
         ->name('api.actions.start-hyde-server');
 
@@ -31,6 +30,9 @@ Route::middleware('initialized')->group(function () {
         return (new PostController)->json($slug);
     })->name('api.posts.json');
 
+    Route::get('/posts/{slug}.md', function (string $slug) {
+        return (new PostController)->markdown($slug);
+    })->name('api.posts.markdown');
 });
 
 Route::get('/debug', DebugController::class);

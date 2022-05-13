@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hyde\Framework\Hyde;
 use Hyde\Framework\MarkdownPostParser;
 use Hyde\Framework\Models\MarkdownPost;
 use Illuminate\Http\Request;
@@ -107,5 +108,13 @@ class PostController extends Controller
         }
 
         return response()->json($this->parse($slug));
+    }
+    
+    public function markdown(string $slug)
+    {
+        return response(
+            file_get_contents(Hyde::path('_posts/' . $slug . '.md')),
+            200, ['Content-Type' => 'text/markdown']
+        ); 
     }
 }
