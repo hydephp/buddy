@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hyde\Framework\MarkdownPostParser;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -43,9 +44,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(string $slug)
     {
-        //
+        return view('dashboard.post', [
+            'post' => (new MarkdownPostParser($slug))->get()
+        ]);
     }
 
     /**

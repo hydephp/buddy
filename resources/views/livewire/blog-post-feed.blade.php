@@ -11,7 +11,9 @@
 			@foreach ($posts as $post)
 				<tr>
 					<td>
-						{{ $post->title }}
+						<a href="{{ route('posts.show', $post->slug) }}">
+							{{ $post->title }}
+						</a>
 					</td>
 					<td>
 						{{ $post->author->username }}
