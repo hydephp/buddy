@@ -16,11 +16,12 @@ use App\Http\Controllers\Api\Actions\StartHydeServer;
 |
 */
 
-Route::get('/actions/compile-static-site', CompileStaticSite::class)
-    ->middleware('initialized')
-    ->name('api.actions.compile-static-site');
+
+Route::middleware('initialized')->group(function () {
+    Route::get('/actions/compile-static-site', CompileStaticSite::class)
+        ->name('api.actions.compile-static-site');
 
 
-Route::get('/actions/start-hyde-server', StartHydeServer::class)
-    ->middleware('initialized')
-    ->name('api.actions.start-hyde-server');
+    Route::get('/actions/start-hyde-server', StartHydeServer::class)
+        ->name('api.actions.start-hyde-server');
+});
