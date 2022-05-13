@@ -187,6 +187,35 @@
                                 </dd>
                             @endif
                         </dl>
+
+                        <h5 class="d-inline pe-2">Front Matter</h5>
+                        <dl class="mt-3">
+                            <dl>
+                                <dt></dt>
+                                <dd>
+                                    @foreach ($post->matter as $key => $value)
+                                        @unless(empty($value) || $key === 'slug')
+                                            @if(is_array($value) || is_object($value))
+                                                <details>
+                                                    <summary>Show {{ $key }} array</summary>
+                                                    <dl>
+                                                        @foreach ($value as $name => $content)
+                                                        <dt>{{ $name }}</dt>
+                                                        <dd>{{ $content }}</dd>
+                                                        @endforeach
+                                                    </dl>
+                                                </details>
+                                            @else
+                                            <dl>
+                                                <dt>{{ $key }}</dt>
+                                                <dd>{{ $value }}</dd>
+                                            </dl>
+                                            @endif
+                                        @endunless
+                                    @endforeach
+                                </dd>
+                            </dl>
+                        </dl>
                     </div>
                 </aside>
             </section>
