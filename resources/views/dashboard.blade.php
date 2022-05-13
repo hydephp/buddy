@@ -24,18 +24,9 @@
                         <livewire:hyde-installation-details />
                     </div>
                 </section>
-                <div class="card-header pb-0 p-3 d-flex align-items-center">
-                    <h6 class="mb-0">Quick Actions</h6>
-                    <span class="text-sm mt-1 ms-2" id="quickactions-live-link">
-                        <span class="text-success status-bullet" role="presentation">•</span>
-                        Your site is live at <a href="http://localhost:8080">
-                            localhost:8080
-                        </a>
-                    </span>
-                </div>
-                <div class="card-body p-3 pb-0">
-                    <livewire:action-toolbar />
-                </div>
+                <section>
+                	<livewire:action-toolbar />
+                </section>
             </div>
         </section>
 
