@@ -96,4 +96,16 @@ class PostController extends Controller
     {
         return (new MarkdownPostParser($slug))->get();
     }
+
+    public function json(string $slug)
+    {
+        if (request()->has('pretty')) {
+            return response(
+                json_encode($this->parse($slug), 128),
+                200, ['Content-Type' => 'application/json']
+            );
+        }
+
+        return response()->json($this->parse($slug));
+    }
 }

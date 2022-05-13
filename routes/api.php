@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DebugController;
 use App\Http\Controllers\Api\Actions\CompileStaticSite;
 use App\Http\Controllers\Api\Actions\StartHydeServer;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,11 @@ Route::middleware('initialized')->group(function () {
 
     Route::get('/actions/start-hyde-server', StartHydeServer::class)
         ->name('api.actions.start-hyde-server');
+
+    Route::get('/posts/{slug}.json', function (string $slug) {
+        return (new PostController)->json($slug);
+    })->name('api.posts.json');
+
 });
 
 Route::get('/debug', DebugController::class);
