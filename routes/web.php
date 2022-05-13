@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DebugController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReadmeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,6 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/readme', ReadmeController::class)->name('readme');
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard')->middleware('initialized');
 Route::get('/dashboard/terminal', [DashboardController::class, 'terminal'])->name('dashboard.terminal')->middleware('initialized');
+Route::resource('/dashboard/posts', PostController::class)->middleware('initialized');
 
 Route::get('/debug', DebugController::class);
