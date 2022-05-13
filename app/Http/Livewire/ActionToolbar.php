@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\Api\Actions\StartHydeServer;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -35,23 +36,12 @@ class ActionToolbar extends Component
         $this->serverActive = $status === 200;
     }
 
-    public function stopServer()
-    {
-        // See if the server is active && managed by Buddy else fail
-
-        // Stop the server
-
-        // Verify that the server is stopped
-
-        $this->serverActive = false;
-        $this->emit('serverStatus', 0);
-    }
-
     public function startServer()
     {   
         // Verify no processes are running on the 8080 port
 
-        // Start the server through Buddy which saves the PID
+        // Start the server
+        (new StartHydeServer())->__invoke();
 
         // Verify that the server is running
 
