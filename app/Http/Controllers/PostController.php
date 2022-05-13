@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Hyde\Framework\MarkdownPostParser;
+use Hyde\Framework\Models\MarkdownPost;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -47,7 +48,7 @@ class PostController extends Controller
     public function show(string $slug)
     {
         return view('dashboard.post', [
-            'post' => (new MarkdownPostParser($slug))->get()
+            'post' => $this->parse($slug)
         ]);
     }
 
@@ -83,5 +84,16 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Parse a slug into a MarkdownPost object.
+     * 
+     * @param  string  $slug
+     * @return \Hyde\Framework\Models\MarkdownPost
+     */
+    public function parse(string $slug): MarkdownPost
+    {
+        return (new MarkdownPostParser($slug))->get();
     }
 }
