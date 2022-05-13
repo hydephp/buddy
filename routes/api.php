@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\Api\Actions\CompileStaticSite;
 use App\Http\Controllers\Api\Actions\StartHydeServer;
 
@@ -25,3 +26,5 @@ Route::middleware('initialized')->group(function () {
     Route::get('/actions/start-hyde-server', StartHydeServer::class)
         ->name('api.actions.start-hyde-server');
 });
+
+Route::get('/debug', DebugController::class);

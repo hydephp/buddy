@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DebugController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReadmeController;
@@ -28,5 +27,3 @@ Route::middleware('initialized')->group(function () {
 		->name('dashboard.terminal');
 	Route::resource('/dashboard/posts', PostController::class);
 });
-
-Route::get('/debug', DebugController::class);
