@@ -11,6 +11,6 @@
     </header>
 
 	<div class="col-12 mx-auto p-3 mb-5">
-		
+        <livewire:blog-post-feed />
 	</div>
 </x-app-layout>
