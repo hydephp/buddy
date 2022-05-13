@@ -5,17 +5,19 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        @foreach ($items as $title => $destination)
-        @if($active === $destination)
+        @foreach ($items as $item)
+        @if($active === $item->route)
             <li class="nav-item">
-                <a href="{{ $destination }}" class="nav-link active" aria-current="page">
-                    {{ $title }}
+                <a href="{{ route($item->route) }}" class="nav-link active" aria-current="page">
+                    {!! $item->icon !!}
+                    {{ $item->label }}
                 </a>
             </li>
             @else
             <li>
-                <a href="{{ $destination }}" class="nav-link link-dark">
-                    {{ $title }}
+                <a href="{{ route($item->route) }}" class="nav-link link-dark">
+                    {!! $item->icon !!}
+                    {{ $item->label }}
                 </a>
             </li>
             @endif
