@@ -45,6 +45,10 @@ a {
     color: #fff;
     background-color: #0d6efd;
 }
+.nav-pills .nav-link.active svg {
+    fill: #fff;
+}
+
 
 .dropdown .dropdown-toggle:after, .dropup .dropdown-toggle:after, .dropstart .dropdown-toggle:after, .dropend .dropdown-toggle:after {
     display: inline-block;

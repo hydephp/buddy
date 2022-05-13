@@ -8,16 +8,16 @@
         @foreach ($items as $item)
         @if($active === $item->route)
             <li class="nav-item">
-                <a href="{{ route($item->route) }}" class="nav-link active" aria-current="page">
+                <a href="{{ route($item->route) }}" class="nav-link active d-flex align-items-center" aria-current="page">
                     {!! $item->icon !!}
-                    {{ $item->label }}
+                    <span class="ms-1" style="line-height: 24px;">{{ $item->label }}</span>
                 </a>
             </li>
             @else
             <li>
-                <a href="{{ route($item->route) }}" class="nav-link link-dark">
+                <a href="{{ route($item->route) }}" class="nav-link link-dark d-flex align-items-center">
                     {!! $item->icon !!}
-                    {{ $item->label }}
+                    <span class="ms-1" style="line-height: 24px;">{{ $item->label }}</span>
                 </a>
             </li>
             @endif
