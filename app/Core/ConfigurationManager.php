@@ -54,6 +54,11 @@ class ConfigurationManager implements Contracts\BuddyConfiguration
         return storage_path('project.json');
     }
 
+    public function getJson(): string
+    {
+        return json_encode($this->get(), JSON_PRETTY_PRINT);
+    }
+
     protected function load(): void
     {
         if (file_exists($this->getConfigurationFilePath())) {
