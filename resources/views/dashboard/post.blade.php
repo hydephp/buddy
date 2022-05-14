@@ -48,11 +48,7 @@
                     <h4 class="card-title">
                         {{ $post->title }}
                     </h4>
-                    <a href="{{ route('api.actions.open-file-in-vscode', [
-                        'path' => '_posts/' . $post->slug . '.md',
-                    ]) }}" class="btn btn-primary py-2 px-3">
-                        Open in VSCode
-                    </a>
+                    <x-file-link :path="\Hyde\Framework\Hyde::path('_posts/' . $post->slug . '.md')">Open File</x-file-link>
                 </header>
                 <article class="card-body col-7">
                     <div class="mb-3">
