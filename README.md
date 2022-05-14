@@ -37,6 +37,12 @@ accidental changes to unrelated projects and files.
 Buddy also allows you to open arbitrary files on the filesystem using the system default executable.
 This is immensely useful for development but is of course a security risk if you run Buddy on a public server.
 
+## Known Issues
+
+**"Application stalls when opening a file in the editor"**
+If running Buddy with Artisan Serve, some actions like running executables will cause the main process to stall.
+To fix this, run Buddy through the executable which contains a web server capable of running multiple processes.
+
 ## Roadmap
 
 * [ ] Add realtime Markdown editing
