@@ -47,7 +47,9 @@
 						<h3 class="card-title">JSON Store</h3>
 						<p>
 							Your settings are stored in the following JSON file:
-							<a href="{{ route('api.actions.open-editor', ['path' => $configuration->getConfigurationFilePath()]) }}">{{ $configuration->getConfigurationFilePath() }}</a>
+							<x-file-link :path="$configuration->getConfigurationFilePath()">
+								{{ $configuration->getConfigurationFilePath() }}
+							</x-file-link>
 						</p>
 					</div>
 					<div class="card-body pt-0">
