@@ -28,5 +28,5 @@ Route::middleware('initialized')->group(function () {
 		->name('dashboard.terminal');
 	Route::resource('/dashboard/posts', PostController::class);
 
-	Route::resource('/dashboard/settings', SettingsController::class)->only(['index', 'update']);
+	Route::resource('/dashboard/settings', SettingsController::class)->only(['index', 'update', 'destroy']);
 });
