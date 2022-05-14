@@ -26,6 +26,10 @@ Route::middleware('initialized')->group(function () {
 		->name('dashboard');
 	Route::get('/dashboard/terminal', [DashboardController::class, 'terminal'])
 		->name('dashboard.terminal');
+	Route::get('/dashboard/browser', [DashboardController::class, 'browser'])
+		->name('dashboard.browser');
+
+
 	Route::resource('/dashboard/posts', PostController::class);
 
 	Route::resource('/dashboard/settings', SettingsController::class)->only(['index', 'update', 'destroy']);

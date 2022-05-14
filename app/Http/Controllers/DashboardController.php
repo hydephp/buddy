@@ -15,4 +15,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.terminal');
     }
+
+    public function browser()
+    {
+        return view('dashboard.browser');
+    }
 }
