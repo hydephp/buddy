@@ -33,9 +33,6 @@
 			background: none;
 			outline: none;
 		}
-		#toolbar li button:hover {
-			background: #353535;
-		}
 		#toolbar input {
 			margin-left: 12px;
 			margin-right: 8px;
@@ -45,6 +42,9 @@
 			width: auto;
 			display: flex;
 			flex: 1;
+		}
+		#refresh {
+			transition: transform 0.2s ease-in-out;
 		}
 	</style>
 
@@ -63,14 +63,16 @@
 						</button>
 					</li>
 					<li>
-						<button>
+						<button id="refresh" onclick="refresh()" style="transform: rotate(0deg)">
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
 						</button>
 					</li>
 					<li>
-						<button>
-							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-						</button>
+						<a href="http://localhost:8080/" target="browser">
+							<button>
+								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+							</button>
+						</a>
 					</li>
 					<li style="display: flex; flex: 1;">
 						<input id="uri" type="text" readonly>
@@ -83,7 +85,23 @@
 					</li>
 				</menu>
 			</header>
-			<iframe name="browser" src="http://localhost:8080/" class="col-12" style="min-height: 75vh; background: lightgray;"></iframe>		
+			<iframe id="browser" name="browser" src="http://localhost:8080/" class="col-12" style="min-height: 75vh; background: lightgray;"></iframe>		
 		</section>
 	</div>
+
+	<script>
+		let browser = document.getElementById('browser');
+		let refreshButton = document.getElementById('refresh');
+		function refresh() {
+			// var uri = document.getElementById('uri').value;
+			browser.src = browser.src;
+
+			// Get the rotation of the refresh button
+			var rotation = refreshButton.style.transform;
+			// Increment with 360 degrees
+			rotation = parseInt(rotation.substring(rotation.indexOf('(') + 1, rotation.indexOf(')'))) + 360;
+			// Set the rotation
+			refreshButton.style.transform = 'rotate(' + rotation + 'deg)';
+		}
+	</script>
 </x-app-layout>
