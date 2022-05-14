@@ -70,6 +70,6 @@ class ConfigurationManager implements Contracts\BuddyConfiguration
 
     protected function persist(): void
     {
-        file_put_contents($this->getConfigurationFilePath(), json_encode($this->configuration, JSON_PRETTY_PRINT));
+        file_put_contents($this->getConfigurationFilePath(), $this->getJson());
     }
 }
