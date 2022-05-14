@@ -51,7 +51,7 @@
 	</style>
 
 	<div class="col-12 mx-auto p-3 mb-5">
-		<section class="container">
+		<section id="browser-window" class="container">
 			<header>
 				<menu id="toolbar" type="toolbar">
 					<li>
@@ -82,6 +82,7 @@
 	</div>
 
 	<script>
+		let browserWindow = document.getElementById('browser-window');
 		let browser = document.getElementById('browser');
 		let refreshButton = document.getElementById('refresh');
 		let uri = document.getElementById('uri');
@@ -101,7 +102,8 @@
 			if (document.fullscreenElement) {
 				document.exitFullscreen();
 			} else {
-				browser.requestFullscreen();
+				browserWindow.requestFullscreen();
+				browser.style.height = 'calc(100% - 80px)';
 			}
 		}
 	</script>
