@@ -34,6 +34,9 @@ that edits the filesystem and runs executables. While I've locked down access
 to only access the current project, that is more intended as a way to prevent
 accidental changes to unrelated projects and files.
 
+Buddy also allows you to open arbitrary files on the filesystem using the system default executable.
+This is immensely useful for development but is of course a security risk if you run Buddy on a public server.
+
 ## Roadmap
 
 * [ ] Add realtime Markdown editing
