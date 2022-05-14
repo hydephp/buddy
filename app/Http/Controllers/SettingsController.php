@@ -18,4 +18,11 @@ class SettingsController extends Controller
     {
         //
     }
+
+    public function destroy(BuddyConfiguration $configuration)
+    {
+        unlink($configuration->getConfigurationFilePath());
+
+        return redirect()->back();
+    }
 }
