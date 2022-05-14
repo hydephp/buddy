@@ -14,14 +14,28 @@
 		<div class="container row">
 			<div class="col-md-6">
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header pb-2">
 						<h3 class="card-title">Project Settings</h3>
+						<p>
+							Here you can configure settings and preferences for your project.
+						</p>
 					</div>
-					<div class="card-body">
+					<div class="card-body pt-0">
 						<form action="{{ route('settings.update', '') }}" method="POST">
 							@csrf
 							@method('PUT')
 							<div class="form-group">
+								<label for="path">Project Path
+									<small class="text-muted">Cannot yet be changed here.</small>
+								</label>
+								<input type="text" class="form-control" id="path" name="path" disabled 
+									value="{{ request()->old('path', $config->path ?? '') }}">
+							</div>
+							<div class="form-group">
+								<label for="project_name">Project Name
+									<small class="text-muted">A label for you to keep track of the project</small></label>
+								<input type="text" class="form-control" id="project_name" name="project_name" 
+									value="{{ request()->old('project_name', $config->project_name ?? '') }}">
 							</div>
 						</form>
 					</div>

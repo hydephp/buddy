@@ -11,6 +11,7 @@ class SettingsController extends Controller
     {
         return view('dashboard.settings', [
             'configuration' => $configuration,
+            'config' => $configuration->getConfigurationObject(),
         ]);
     }
 
