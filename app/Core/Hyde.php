@@ -11,7 +11,7 @@ class Hyde
 {
     use InteractsWithProject;
 
-    protected string $path;
+    protected string $path = '';
 
     public function getPath(): string
     {
