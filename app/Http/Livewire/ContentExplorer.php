@@ -44,15 +44,10 @@ class ContentExplorer extends Component
 
         $this->pages = new Collection();
 
-        $bladePages = BladePage::all();
-        $markdownPages = MarkdownPage::all();
-        $markdownPosts = MarkdownPost::all();
-        $documentationPages = DocumentationPage::all();
-
-        $this->pages->put('bladePages', $bladePages);
-        $this->pages->put('markdownPages', $markdownPages);
-        $this->pages->put('markdownPosts', $markdownPosts);
-        $this->pages->put('documentationPages', $documentationPages);
+        $this->pages->put('bladePages', BladePage::all());
+        $this->pages->put('markdownPages', MarkdownPage::all());
+        $this->pages->put('markdownPosts', MarkdownPost::all());
+        $this->pages->put('documentationPages', DocumentationPage::all());
 
         Cache::put('content-explorer-' . $hash, $this->pages, now()->addMinutes(5));
         $console->debug('Loaded all pages in ' . round((microtime(true) - $time) * 1000, 2) . 'ms.');
