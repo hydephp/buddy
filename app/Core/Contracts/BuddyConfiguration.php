@@ -2,6 +2,9 @@
 
 namespace App\Core\Contracts;
 
+/**
+ * @deprecated
+ */
 interface BuddyConfiguration
 {
     /**

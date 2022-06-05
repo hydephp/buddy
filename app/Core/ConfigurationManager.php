@@ -2,6 +2,9 @@
 
 namespace App\Core;
 
+/**
+ * @deprecated
+ */
 class ConfigurationManager implements Contracts\BuddyConfiguration
 {
     public object $configuration;
