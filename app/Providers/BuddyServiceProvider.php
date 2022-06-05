@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Core\BuddyProvider;
 use App\Core\Contracts\Buddy;
+use Hyde\Framework\Hyde;
 use Illuminate\Support\ServiceProvider;
 
 class BuddyServiceProvider extends ServiceProvider
@@ -25,8 +26,10 @@ class BuddyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Buddy $buddy)
     {
-       //
+        // This sets the base path for the entire Hyde/Framework application,
+        // allowing us to interact directly with the Hyde project.
+        Hyde::setBasePath($buddy->project()->path);
     }
 }
