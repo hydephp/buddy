@@ -108,7 +108,7 @@
             <p class="lead mb-2">
                 Your Buddy is configured for the following Hyde installation: <code class="bg-light">{{ Buddy::project()->getPath() }}</code>
                 <small class="text-sm">
-                    Not correct? <a href="javascript:void(null);" onclick="confirm('Are you sure you want to remove the configured project?')" wire:click="killHyde">Click to Delete</a>.
+                    Not correct? <a href="/settings" >Manage projects</a>.
                 </small>
             </p>
 
