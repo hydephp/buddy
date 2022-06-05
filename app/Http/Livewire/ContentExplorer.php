@@ -19,23 +19,35 @@ class ContentExplorer extends Component
 
     protected Buddy $buddy;
 
+    protected $cacheKey;
+
     public Collection $pages;
 
     public function mount(Buddy $buddy)
     {
         $this->buddy = $buddy;
+        $this->cacheKey = 'content-explorer-'.$this->getContentHash();
+
+        // If a cache exists we don't need to lazy load it
+        if (Cache::has($this->cacheKey)) {
+            $this->load();
+        }
     }
 
     public function load()
     {
+        if ($this->loaded) {
+            return;
+        }
+
         $time = microtime(true);
         $console = new Console;
         $console->debug('Loading page collections...');
 
         $hash = $this->getContentHash();
 
-        if (Cache::has('content-explorer-'.$hash)) {
-            $this->pages = Cache::get('content-explorer-' . $hash);
+        if (Cache::has($this->cacheKey)) {
+            $this->pages = Cache::get($this->cacheKey);
             $console->debug('Loaded page collections from cache in '
                 . round((microtime(true) - $time) * 1000, 2) . 'ms.');
             $this->loaded = true;

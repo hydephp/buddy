@@ -1,8 +1,6 @@
 <div wire:init="load">
-    <h5 wire:loading>Loading...</h5>
     @if($loaded)
-        <div wire:loading.attr="hidden">
-            @dump($pages)
+        <div>
             <section>
                 <h6>Blade Pages</h6>
                 @if($pages->get('bladePages')->count() > 0)
@@ -15,7 +13,7 @@
             </section>
             <section>
                 <h6>Markdown Pages</h6>
-                @if($pages->get('markdownPages')->count() > 0)
+                @if(count($pages->get('markdownPages')) > 0)
                     <table>
                         @dump($pages->get('markdownPages'))
                     </table>
@@ -25,7 +23,7 @@
             </section>
             <section>
                 <h6>Markdown Blog Posts</h6>
-                @if($pages->get('markdownPosts')->count() > 0)
+                @if(count($pages->get('markdownPosts')) > 0)
                     <table>
                         @dump($pages->get('markdownPosts'))
                     </table>
@@ -35,7 +33,7 @@
             </section>
             <section>
                 <h6>Documentation Pages</h6>
-                @if($pages->get('documentationPages')->count() > 0)
+                @if(count($pages->get('documentationPages')) > 0)
                     <table>
                         @dump($pages->get('documentationPages'))
                     </table>
@@ -44,5 +42,7 @@
                 @endif
             </section>
         </div>
+    @else
+        <h5 wire:loading>Loading...</h5>
     @endif
 </div>
