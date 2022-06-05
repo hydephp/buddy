@@ -3,9 +3,10 @@
         <div>
             <section>
                 <h6>Blade Pages</h6>
-                @if($pages->get('bladePages')->count() > 0)
+                @php($bladePages = collect($pages->get('bladePages')))
+                @if($bladePages->count() > 0)
                     <table>
-                        @dump($pages->get('bladePages'))
+                        @dump($bladePages)
                     </table>
                 @else
                     <p>No Blade Pages Found</p>
@@ -13,9 +14,10 @@
             </section>
             <section>
                 <h6>Markdown Pages</h6>
-                @if(count($pages->get('markdownPages')) > 0)
+                @php($markdownPages = collect($pages->get('markdownPages')))
+                @if($markdownPages->count() > 0)
                     <table>
-                        @dump($pages->get('markdownPages'))
+                        @dump($markdownPages)
                     </table>
                 @else
                     <p>No Markdown Pages Found</p>
@@ -23,9 +25,10 @@
             </section>
             <section>
                 <h6>Markdown Blog Posts</h6>
-                @if(count($pages->get('markdownPosts')) > 0)
+                @php($markdownPosts = collect($pages->get('markdownPosts')))
+                @if($markdownPosts->count() > 0)
                     <table>
-                        @dump($pages->get('markdownPosts'))
+                        @dump($markdownPosts)
                     </table>
                 @else
                     <p>No Markdown Posts Found</p>
@@ -33,9 +36,10 @@
             </section>
             <section>
                 <h6>Documentation Pages</h6>
-                @if(count($pages->get('documentationPages')) > 0)
+                @php($documentationPages = collect($pages->get('documentationPages')))
+                @if($documentationPages->count() > 0)
                     <table>
-                        @dump($pages->get('documentationPages'))
+                        @dump($documentationPages)
                     </table>
                 @else
                     <p>No Documentation Pages Found</p>
