@@ -3,41 +3,51 @@
 namespace App\Http\Livewire;
 
 use App\Core\Contracts\Buddy;
+use Hyde\Framework\Models\BladePage;
+use Hyde\Framework\Models\DocumentationPage;
+use Hyde\Framework\Models\MarkdownPage;
+use Hyde\Framework\Models\MarkdownPost;
+use Illuminate\Support\Collection;
 use Livewire\Component;
+use Desilva\Console\Console;
 
 class ContentExplorer extends Component
 {
-    public string $postsDir;
-    public string $pagesDir;
-    public string $docsDir;
+    public bool $loaded = false;
 
-    public array $posts = [];
-    public array $pages = [];
-    public array $docs = [];
+    protected Buddy $buddy;
+
+    /** @var Collection<\Hyde\Framework\Models\BladePage */
+    public Collection $bladePages;
+
+    /** @var Collection<\Hyde\Framework\Models\MarkdownPage */
+    public Collection $markdownPages;
+
+    /** @var Collection<\Hyde\Framework\Models\MarkdownPost */
+    public Collection $markdownPosts;
+
+    /** @var Collection<\Hyde\Framework\Models\DocumentationPage */
+    public Collection $documentationPages;
 
     public function mount(Buddy $buddy)
     {
-        $this->postsDir = $buddy->hyde()->path() . '/_posts';
-        $this->pagesDir = $buddy->hyde()->path() . '/_pages';
-        $this->docsDir = $buddy->hyde()->path() . '/_docs';
+        $this->buddy = $buddy;
     }
 
     public function load()
     {
-        $this->pages = $this->getFiles($this->pagesDir);
-        $this->posts = $this->getFiles($this->postsDir);
-        $this->docs = $this->getFiles($this->docsDir);
-    }
+        $time = microtime(true);
+        $console = new Console;
+        $console->debug('Loading page collections...');
 
-    public function getFiles(string $dir)
-    {
-        $files = [];
+        $this->bladePages = BladePage::all();
+        $this->markdownPages = MarkdownPage::all();
+        $this->markdownPosts = MarkdownPost::all();
+        $this->documentationPages = DocumentationPage::all();
 
-        if (is_dir($dir)) {
-            $files = array_merge($files, glob($dir . '/*.md'));
-        }
-        
-        return $files;
+        $console->debug('Loaded all pages in ' . round(microtime(true) - $time, 2) . ' seconds.');
+
+        $this->loaded = true;
     }
 
     public function render()
