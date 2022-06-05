@@ -14,7 +14,7 @@ class BuddyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(Buddy::class, function ($app) {
             return new BuddyProvider();
@@ -24,9 +24,10 @@ class BuddyServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      *
+     * @param \App\Core\Contracts\Buddy $buddy
      * @return void
      */
-    public function boot(Buddy $buddy)
+    public function boot(Buddy $buddy): void
     {
         // This sets the base path for the entire Hyde/Framework application,
         // allowing us to interact directly with the Hyde project.
