@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Core\Concerns\IsIdentifiable;
 use App\Core\Contracts\Buddy;
+use App\Core\Contracts\BuddyConfiguration;
 use Illuminate\Support\Facades\Cache;
 
 /**
@@ -16,10 +17,14 @@ class BuddyProvider implements Buddy
     protected bool $initialized = false;
     protected Hyde $hyde;
 
-	public function __construct()
+    protected BuddyConfiguration $configurationManager;
+
+	public function __construct(BuddyConfiguration $configuration)
 	{
         $this->identify();
         $this->initialize();
+
+        $this->configurationManager = $configuration;
 	}
 
     // Assertion methods

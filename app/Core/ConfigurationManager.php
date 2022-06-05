@@ -3,76 +3,46 @@
 namespace App\Core;
 
 /**
- * @deprecated
+ * Interacts with the global configuration file.
  */
 class ConfigurationManager implements Contracts\BuddyConfiguration
 {
-    public object $configuration;
+    protected string $configurationPath;
+    protected object $config;
 
     public function __construct()
     {
-        $this->loadConfigurationObject();
-    }
+        // Buddy currently only supports Windows.
+        $directory = getenv('HOMEDRIVE') . getenv('HOMEPATH').'\.hyde-buddy';
 
-    public function loadConfigurationObject(): self
-    {
+        if (! is_dir($directory)) {
+            mkdir($directory, recursive: true);
+        }
+
+        $this->configurationPath = $directory.'/config.json';
+
+        if (! file_exists($this->configurationPath)) {
+            $this->config = new \stdClass();
+            $this->config->buddy_version = 'canary';
+            $this->config->config_created_at = date('Y-m-d H:i:s');
+            $this->config->projects = [];
+            $this->save();
+        }
+
         $this->load();
+    }
+
+    public function load(): self
+    {
+        $this->config = json_decode(file_get_contents($this->configurationPath));
 
         return $this;
     }
 
-    public function storeConfigurationObject(): self
+    public function save(): self
     {
-        $this->persist();
+        file_put_contents($this->configurationPath, json_encode($this->config, JSON_PRETTY_PRINT), LOCK_EX);
 
         return $this;
-    }
-
-    public function initializeConfigurationObject(): self
-    {
-        $this->configuration = new \stdClass();
-
-        if (BuddyFacade::hyde()->getPath()) {
-            $this->configuration->path = BuddyFacade::hyde()->getPath();
-        }
-
-        $this->storeConfigurationObject();
-
-        return $this;
-    }
-
-
-    public function getConfigurationObject(): object
-    {
-        return $this->configuration;
-    }
-
-    public function get(): object
-    {
-        return $this->getConfigurationObject();
-    }
-
-    public function getConfigurationFilePath(): string
-    {
-        return storage_path('project.json');
-    }
-
-    public function getJson(): string
-    {
-        return json_encode($this->get(), JSON_PRETTY_PRINT);
-    }
-
-    protected function load(): void
-    {
-        if (file_exists($this->getConfigurationFilePath())) {
-            $this->configuration = json_decode(file_get_contents($this->getConfigurationFilePath()));
-        } else {
-            $this->initializeConfigurationObject();
-        }
-    }
-
-    protected function persist(): void
-    {
-        file_put_contents($this->getConfigurationFilePath(), $this->getJson());
     }
 }

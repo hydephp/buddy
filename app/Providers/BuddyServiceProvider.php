@@ -18,7 +18,7 @@ class BuddyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Buddy::class, function ($app) {
-            return new BuddyProvider();
+            return new BuddyProvider(app(BuddyConfiguration::class));
         });
 
         $this->app->singleton(BuddyConfiguration::class, function ($app) {
