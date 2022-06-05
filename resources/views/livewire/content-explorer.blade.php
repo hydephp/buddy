@@ -1,4 +1,7 @@
 <div wire:init="load">
+    <blockquote class="alert alert-warning">
+        @todo: handle data assembly in controller
+    </blockquote>
     @if($loaded)
         <div>
             <style>
@@ -68,7 +71,36 @@
                 @php($markdownPosts = collect($pages->get('markdownPosts')))
                 @if($markdownPosts->count() > 0)
                     <table class="table table-bordered">
-                        @dump($markdownPosts)
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Post Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($markdownPosts as  $markdownPost)
+                                @php($markdownPost = (object) $markdownPost)
+                                <tr>
+                                    <td>
+                                        @php($markdownPost->date = (object) $markdownPost->date)
+                                        {{ $markdownPost->date->short }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('posts.show', $markdownPost->slug) }}">
+                                            {{ $markdownPost->title }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @php($markdownPost->author = (object) $markdownPost->author)
+                                        {{ $markdownPost->author->name ?? $markdownPost->author->username  }}
+                                    </td>
+                                    <td>{{ $markdownPost->category }}</td>
+                       
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 @else
                     <p>No Markdown Posts Found</p>
