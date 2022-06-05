@@ -17,17 +17,7 @@ class ContentExplorer extends Component
 
     protected Buddy $buddy;
 
-    /** @var Collection<\Hyde\Framework\Models\BladePage */
-    public Collection $bladePages;
-
-    /** @var Collection<\Hyde\Framework\Models\MarkdownPage */
-    public Collection $markdownPages;
-
-    /** @var Collection<\Hyde\Framework\Models\MarkdownPost */
-    public Collection $markdownPosts;
-
-    /** @var Collection<\Hyde\Framework\Models\DocumentationPage */
-    public Collection $documentationPages;
+    public Collection $pages;
 
     public function mount(Buddy $buddy)
     {
@@ -40,10 +30,17 @@ class ContentExplorer extends Component
         $console = new Console;
         $console->debug('Loading page collections...');
 
-        $this->bladePages = BladePage::all();
-        $this->markdownPages = MarkdownPage::all();
-        $this->markdownPosts = MarkdownPost::all();
-        $this->documentationPages = DocumentationPage::all();
+        $this->pages = new Collection();
+
+        $bladePages = BladePage::all();
+        $markdownPages = MarkdownPage::all();
+        $markdownPosts = MarkdownPost::all();
+        $documentationPages = DocumentationPage::all();
+
+        $this->pages->put('bladePages', $bladePages);
+        $this->pages->put('markdownPages', $markdownPages);
+        $this->pages->put('markdownPosts', $markdownPosts);
+        $this->pages->put('documentationPages', $documentationPages);
 
         $console->debug('Loaded all pages in ' . round(microtime(true) - $time, 2) . ' seconds.');
 
