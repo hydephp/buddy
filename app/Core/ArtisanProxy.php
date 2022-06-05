@@ -1,13 +1,8 @@
 <?php
 
-namespace App\Core\Concerns;
+namespace App\Core;
 
-use App\Core\BuddyFacade;
-
-/**
- * @deprecated use ArtisanProxy instead
- */
-trait InteractsWithProject
+class ArtisanProxy
 {
     /**
      * Get the current project path.

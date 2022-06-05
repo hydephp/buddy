@@ -5,7 +5,7 @@ namespace App\Core;
 /**
  * Interacts with the global configuration file.
  */
-class ConfigurationManager implements Contracts\BuddyConfiguration
+class BuddyConfiguration
 {
     protected string $configurationPath;
     protected object $config;
@@ -44,5 +44,24 @@ class ConfigurationManager implements Contracts\BuddyConfiguration
         file_put_contents($this->configurationPath, json_encode($this->config, JSON_PRETTY_PRINT), LOCK_EX);
 
         return $this;
+    }
+
+    public function getConfiguration(): object
+    {
+        return $this->config;
+    }
+
+    public function hasActiveProject(): bool
+    {
+        return isset($this->config->active_project);
+    }
+
+    public function getActiveProjectConfiguration(): ?object
+    {
+        if (! $this->hasActiveProject()) {
+            return null;
+        }
+
+        return $this->config->active_project;
     }
 }

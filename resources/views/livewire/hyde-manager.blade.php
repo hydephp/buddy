@@ -1,5 +1,11 @@
 <section>
     @if($needsInitialization)
+    <style>
+        main {
+            margin: 0 auto!important;
+            max-width: unset!important;
+        }
+    </style>
     <div class="container mx-auto mb-8">
         <header class="text-center mb-4">
             <h2>Hyde Setup Manager</h2>
@@ -83,7 +89,7 @@
                 </p>
                 
 
-                @if(Buddy::hasHydeInstance())
+                @if(Buddy::configManager()->hasActiveProject())
                     <h4 class="h5">Buddy has been set up successfully!</h4>
 
                     <div class="mt-3">
@@ -100,7 +106,7 @@
         <header class="text-center mb-4">
             <h2 class="mb-4">Buddy is set up and ready to go!</h2>
             <p class="lead mb-2">
-                Your Buddy is configured for the following Hyde installation: <code class="bg-light">{{ Buddy::hyde()->getPath() }}</code>
+                Your Buddy is configured for the following Hyde installation: <code class="bg-light">{{ Buddy::project()->getPath() }}</code>
                 <small class="text-sm">
                     Not correct? <a href="javascript:void(null);" onclick="confirm('Are you sure you want to remove the configured project?')" wire:click="killHyde">Click to Delete</a>.
                 </small>

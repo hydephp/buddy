@@ -21,7 +21,7 @@ class HydeManager extends Component
 
     public function mount(Buddy $buddy)
     {
-        $this->needsInitialization = ! $buddy->hasHydeInstance();
+        $this->needsInitialization = ! $buddy->configManager()->hasActiveProject();
     }
 
     public function findHydeProject()
@@ -43,7 +43,7 @@ class HydeManager extends Component
     {
         $this->formProgress = 3;
 
-        if ($buddy->hasHydeInstance()) {
+        if ($buddy->configManager()->hasActiveProject()) {
             throw new \Exception('Buddy already has a Hyde instance. Did you already finish setup in another tab?', 409);
         }
 
