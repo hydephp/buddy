@@ -59,7 +59,7 @@ class ContentExplorer extends Component
         $this->pages->put('bladePages', BladePage::all());
         $this->pages->put('markdownPages', MarkdownPage::all());
         $this->pages->put('markdownPosts', MarkdownPost::all());
-        $this->pages->put('documentationPages', DocumentationPage::all());
+        $this->pages->put('documentationPages', \Hyde\Framework\Services\DocumentationSidebarService::create()->getSortedSidebar());
 
         Cache::put('content-explorer-' . $hash, $this->pages, now()->addMinutes(5));
         $console->debug('Loaded all pages in ' . round((microtime(true) - $time) * 1000, 2) . 'ms.');

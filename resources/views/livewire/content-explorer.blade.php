@@ -111,7 +111,33 @@
                 @php($documentationPages = collect($pages->get('documentationPages')))
                 @if($documentationPages->count() > 0)
                     <table class="table table-bordered">
-                        @dump($documentationPages)
+                        <thead>
+                            <tr>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Label</th>
+                                <th scope="col">Slug</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Hidden</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($documentationPages as $documentationPage)
+                                @php($documentationPage = (object) $documentationPage)
+                                <tr>
+                                    <td>{{ $documentationPage->priority }}</td>
+                                    <td><a href="../docs/{{ $documentationPage->destination }}">{{ $documentationPage->label }}</a></td>
+                                    <td>{{ $documentationPage->destination }}</td>
+                                    <td>{{ $documentationPage->category }}</td>
+                                    <td>
+                                        @if ($documentationPage->hidden)
+                                            <span style="color: darkred;">true</span>
+                                        @else
+                                            <span style="opacity: 0.75;">false</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 @else
                     <p>No Documentation Pages Found</p>
