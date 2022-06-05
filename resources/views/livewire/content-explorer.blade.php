@@ -32,7 +32,7 @@
                 <h6>Markdown Pages</h6>
                 @php($markdownPages = collect($pages->get('markdownPages')))
                 @if($markdownPages->count() > 0)
-                    <table>
+                    <table class="table table-bordered">
                         @dump($markdownPages)
                     </table>
                 @else
@@ -43,7 +43,7 @@
                 <h6>Markdown Blog Posts</h6>
                 @php($markdownPosts = collect($pages->get('markdownPosts')))
                 @if($markdownPosts->count() > 0)
-                    <table>
+                    <table class="table table-bordered">
                         @dump($markdownPosts)
                     </table>
                 @else
@@ -54,7 +54,7 @@
                 <h6>Documentation Pages</h6>
                 @php($documentationPages = collect($pages->get('documentationPages')))
                 @if($documentationPages->count() > 0)
-                    <table>
+                    <table class="table table-bordered">
                         @dump($documentationPages)
                     </table>
                 @else
