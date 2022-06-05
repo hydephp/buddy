@@ -47,6 +47,7 @@ class BuddyProvider implements Buddy
         $this->hyde = new Hyde();
     }
 
+    /** @deprecated */
     public function getPersisted(): void
     {
         $hyde = Cache::get(Hyde::class);
@@ -55,6 +56,7 @@ class BuddyProvider implements Buddy
         }
     }
 
+    /** @deprecated */
     public function persist(): void
     {
         Cache::store('file')->put(Hyde::class, $this->hyde);
