@@ -5,8 +5,24 @@
                 <h6>Blade Pages</h6>
                 @php($bladePages = collect($pages->get('bladePages')))
                 @if($bladePages->count() > 0)
-                    <table>
-                        @dump($bladePages)
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>View Name</th>
+                                <th>Slug</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($bladePages as  $bladePage)
+                                @php($bladePage = (object) $bladePage)
+                                <tr>
+                                    <td>{{ $bladePage->view }}</td>
+                                    <td>{{ $bladePage->slug }}</td>
+                                    <td><a href="/_site/{{ $bladePage->slug }}">See live page</a><sup>NYI</sup></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 @else
                     <p>No Blade Pages Found</p>
