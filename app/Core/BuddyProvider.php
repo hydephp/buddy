@@ -52,4 +52,9 @@ class BuddyProvider implements Buddy
     {
         return $this->hyde;
     }
+
+    public function artisan(): ArtisanProxy
+    {
+        return $this->artisan;
+    }
 }

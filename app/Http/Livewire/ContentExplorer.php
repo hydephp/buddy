@@ -17,9 +17,9 @@ class ContentExplorer extends Component
 
     public function mount(Buddy $buddy)
     {
-        $this->postsDir = $buddy->hyde()->getPath() . '/_posts';
-        $this->pagesDir = $buddy->hyde()->getPath() . '/_pages';
-        $this->docsDir = $buddy->hyde()->getPath() . '/_docs';
+        $this->postsDir = $buddy->hyde()->path() . '/_posts';
+        $this->pagesDir = $buddy->hyde()->path() . '/_pages';
+        $this->docsDir = $buddy->hyde()->path() . '/_docs';
     }
 
     public function load()
