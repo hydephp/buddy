@@ -4,12 +4,11 @@ namespace App\Core;
 
 class ArtisanProxy
 {
-    /**
-     * Get the current project path.
-     */
-    public function getPath(): string
+    protected string $path;
+
+    public function __construct(string $path)
     {
-        return BuddyFacade::hyde()->getPath();
+        $this->path = $path;
     }
 
     /**
@@ -17,7 +16,7 @@ class ArtisanProxy
      */
     public function artisan(string $command): string
     {
-        return shell_exec('cd '.$this->getPath().' && php hyde ' . $command);
+        return shell_exec('cd '.$this->path.' && php hyde ' . $command);
     }
 
     /**
@@ -25,6 +24,6 @@ class ArtisanProxy
      */
     public function passthru(string $command): void
     {
-        passthru('cd '.$this->getPath().' && php hyde ' . $command);
+        passthru('cd '.$this->path.' && php hyde ' . $command);
     }
 }

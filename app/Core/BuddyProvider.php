@@ -4,7 +4,6 @@ namespace App\Core;
 
 use App\Core\Concerns\IsIdentifiable;
 use App\Core\Contracts\Buddy;
-use Hyde\Framework\Hyde;
 
 /**
  * Primary interface implementation for interacting with the Hyde Buddy.
@@ -17,6 +16,7 @@ class BuddyProvider implements Buddy
 
     protected HydeProject $project;
     protected ArtisanProxy $artisan;
+    protected HydeProxy $hyde;
 
 	public function __construct()
 	{
@@ -26,6 +26,10 @@ class BuddyProvider implements Buddy
 
         if ($this->configurationManager->hasActiveProject() ) {
             $this->project = new HydeProject($this->configurationManager->getActiveProjectConfiguration()->path);
+
+            $this->hyde = new HydeProxy($this->project->path);
+            $this->artisan = new ArtisanProxy($this->project->path);
+
         }
 	}
 
@@ -42,5 +46,10 @@ class BuddyProvider implements Buddy
     public function project(): HydeProject|false
     {
         return $this->project ?? false;
+    }
+
+    public function hyde(): HydeProxy
+    {
+        return $this->hyde;
     }
 }
