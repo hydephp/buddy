@@ -25,6 +25,11 @@ class HydeProject
         BuddyFacade::configManager()->setActiveProject($this);
     }
 
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
     public static function validatePath(string $path): bool
     {
         $path = realpath($path);
