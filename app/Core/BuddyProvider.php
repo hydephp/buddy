@@ -39,8 +39,8 @@ class BuddyProvider implements Buddy
         return $this->configurationManager->getConfiguration();
     }
 
-    public function project(): HydeProject
+    public function project(): HydeProject|false
     {
-        return $this->project;
+        return $this->project ?? false;
     }
 }

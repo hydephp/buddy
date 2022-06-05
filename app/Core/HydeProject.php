@@ -9,18 +9,23 @@ use InvalidArgumentException;
  */
 class HydeProject
 {
-    protected string $path;
+    public string $path;
 
     public function __construct(string $path)
     {
-        if (! $this->isValidPath($path)) {
+        if (! static::validatePath($path)) {
             throw new InvalidArgumentException('The supplied path does not seem to belong to a Hyde project.');
         }
 
         $this->path = $path;
     }
 
-    protected function isValidPath(string $path): bool
+    public function setActive()
+    {
+        BuddyFacade::configManager()->setActiveProject($this);
+    }
+
+    public static function validatePath(string $path): bool
     {
         $path = realpath($path);
 

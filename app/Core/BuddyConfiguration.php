@@ -64,4 +64,12 @@ class BuddyConfiguration
 
         return $this->config->active_project;
     }
+
+    public function setActiveProject(HydeProject $project): self
+    {
+        $this->config->active_project = $project;
+        $this->save();
+
+        return $this;
+    }
 }

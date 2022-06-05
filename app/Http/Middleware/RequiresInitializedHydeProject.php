@@ -22,7 +22,7 @@ class RequiresInitializedHydeProject
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! $this->buddy->configurationManager->hasActiveProject()) {
+        if (! $this->buddy->project()) {
             return redirect(route('home'))->with([
                 'errorBanner' => 'You must initialize a Hyde project before you can access this page.',
             ]);

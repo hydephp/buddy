@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Core\Contracts\Buddy;
 use App\Core\Hyde;
+use App\Core\HydeProject;
 use Livewire\Component;
 
 class HydeManager extends Component
@@ -30,7 +31,7 @@ class HydeManager extends Component
             'path' => 'required|string'
         ]);
 
-        if (! Hyde::isThisAValidHydeProjectPath($this->path)) {
+        if (! HydeProject::validatePath($this->path)) {
             $this->addError('path', 'Could not find a Hyde project here.');
             return;
         }
@@ -47,15 +48,8 @@ class HydeManager extends Component
             throw new \Exception('Buddy already has a Hyde instance. Did you already finish setup in another tab?', 409);
         }
 
-        $buddy->constructHydeInstance();
-        $buddy->getHydeInstance()->setPath($this->hydePath);
-        $buddy->persist();
-    }
-
-    public function killHyde(Buddy $buddy)
-    {
-        cache()->forget(Hyde::class);
-        return redirect()->to('/');
+        $project = new HydeProject($this->hydePath);
+        $project->setActive();
     }
 
     public function render()
