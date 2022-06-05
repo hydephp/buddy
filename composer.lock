@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d2a2c0d039abc5545ab3b8c82088ee6",
+    "content-hash": "191fc8f46454faf310e1a17a49e1eb76",
     "packages": [
         {
             "name": "brick/math",
@@ -65,6 +65,43 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "desilva/console",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../HydeCMSProject/packages/console",
+                "reference": "e9006f7e57812a79e851f6be2636a3d65f25931b"
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Desilva\\Console\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caen De Silva",
+                    "email": "caen@desilva.se",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lightweight API for writing to the PHP console",
+            "homepage": "https://github.com/caendesilva/console",
+            "keywords": [
+                "console",
+                "desilva"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "dflydev/dot-access-data",
@@ -8530,6 +8567,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "desilva/console": 20,
         "hyde/framework": 20
     },
     "prefer-stable": true,
