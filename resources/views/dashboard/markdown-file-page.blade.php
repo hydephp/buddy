@@ -15,7 +15,8 @@
 
 		<section class="col-12 col-xxl-10 mx-auto card">
 			<header class="card-header pb-2 pt-3 bg-light d-flex align-items-center justify-content-between">
-				<h4 id="tab-title">Markdown Contents</h4>
+				<h4 id="tab-title" class="me-auto">Markdown Contents</h4>
+				<a href="{{ route('api.markdown-file.html', [$directory, $filename]) }}" class="btn btn-xs btn-secondary mb-2 me-2" target="_blank">See basic HTML</a>
 				<button id="toggle-tab-button" onclick="toggleTab()" class="btn btn-xs btn-primary mb-2" title="Shortcut: `e`">Edit</button>
 			</header>
 			<div id="tabs" class="card-body p-3 markdown-contents {{ $errors->any() ? 'tab-two' : 'tab-one' }}">

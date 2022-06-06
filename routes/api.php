@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Actions\CompileStaticSite;
 use App\Http\Controllers\Api\Actions\OpenFileInEditor;
 use App\Http\Controllers\Api\Actions\OpenFileInVSCode;
 use App\Http\Controllers\Api\Actions\StartHydeServer;
+use App\Http\Controllers\MarkdownFileViewer;
 use App\Http\Controllers\PostController;
 
 /*
@@ -46,6 +47,9 @@ Route::middleware('initialized')->group(function () {
     Route::get('/posts/{slug}.html', function (string $slug) {
         return (new PostController)->html($slug);
     })->name('api.posts.html');
+
+	Route::get('/project/files/{directory}/{file}/html', [MarkdownFileViewer::class, 'html'])
+        ->name('api.markdown-file.html');
 });
 
 Route::get('/debug', DebugController::class);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Hyde\Framework\Hyde;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class MarkdownFileViewer extends Controller
 {
@@ -47,5 +49,15 @@ class MarkdownFileViewer extends Controller
             'directory' => $directory,
             'file' => $file,
         ]);
+    }
+
+    public function html(string $directory, string $file)
+    {
+        $path = $directory .'/'. $file;
+        abort_unless(file_exists(Hyde::path($path)), 404);
+
+        $content = file_get_contents(Hyde::path($path));
+
+        return Str::markdown((YamlFrontMatter::markdownCompatibleParse($content)->body()));
     }
 }
