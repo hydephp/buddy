@@ -36,4 +36,7 @@ Route::middleware('initialized')->group(function () {
 
 	Route::get('/project/files/{directory}/{file}', [MarkdownFileViewer::class, 'show'])
 		->name('markdown-file.show');
+	
+	Route::post('/project/files/{directory}/{file}/save', [MarkdownFileViewer::class, 'save'])
+		->name('markdown-file.save');
 });

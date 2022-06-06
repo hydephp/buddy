@@ -18,18 +18,25 @@
 				<h4 id="tab-title">Markdown Contents</h4>
 				<button id="toggle-tab-button" onclick="toggleTab()" class="btn btn-xs btn-primary mb-2" title="Shortcut: `e`">Edit</button>
 			</header>
-			<div id="tabs" class="card-body p-3 markdown-contents tab-one">
+			<div id="tabs" class="card-body p-3 markdown-contents {{ $errors->any() ? 'tab-two' : 'tab-one' }}">
 				<div id="tab-one">
 					<pre><code class="language-markdown">{{ $content }}</code></pre>
 				</div>
 				<div id="tab-two">
-					<form class="py-2" action="update" method="POST">
+					<form class="py-2" action="{{ route('markdown-file.save', [$directory, $filename]) }}" method="POST">
+						@if($errors->any())
+							@foreach ($errors->all() as $error)
+							<div class="alert alert-danger alert-dismissible fade show py-2 px-3 text-white" role="alert">
+								<strong>Error:</strong> {{ $error }}
+							</div>
+							@endforeach
+						@endif
 						@csrf
 						<div class="col-12 mb-3">
-							<textarea class="form-control" name="content" id="content" cols="30" rows="30">{{ $content }}</textarea>
+							<textarea class="form-control" name="content" id="content" cols="30" rows="30" required>{{ $content }}</textarea>
 						</div>
 						<div class="col-12 text-end">
-							<button type="submit" class="btn btn-primary">Save</button>
+							<button id="save-button" type="submit" class="btn btn-primary" title="Shortcut: `CTRL+S`">Save</button>
 						</div>
 					</form>
 				</div>
@@ -70,10 +77,10 @@
 		const tabContainer = document.getElementById('tabs');
 		const tabTitle = document.getElementById('tab-title');
 		const toggleTabButton = document.getElementById('toggle-tab-button');
-		function toggleTab() {
-			function isOnFirstTab () {
+		function isOnFirstTab () {
 				return tabContainer.classList.contains('tab-one');
 			}
+		function toggleTab() {
 			if (isOnFirstTab()) {
 				tabContainer.classList.remove('tab-one');
 				tabContainer.classList.add('tab-two');
@@ -94,6 +101,18 @@
 				if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
 					toggleTab();
 				}
+			}
+		});
+		
+		// Register event listener for CTRL+S
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 's' && e.ctrlKey) {
+			if (! isOnFirstTab()) {
+					e.preventDefault();
+					document.getElementById('save-button').click();
+					
+				}
+	
 			}
 		});
 	</script>
