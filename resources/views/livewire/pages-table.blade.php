@@ -17,10 +17,10 @@
             <tbody>
             @for($i = 0; $i < $max; $i++)
                 <tr>
-                    <td>{{ isset($pages['bladePages'][$i]) ? $pages['bladePages'][$i].'.blade.php' : '' }}</td>
-                    <td>{{ isset($pages['markdownPages'][$i]) ? $pages['markdownPages'][$i].'.md' : '' }}</td>
-                    <td>{{ isset($pages['markdownPosts'][$i]) ? $pages['markdownPosts'][$i].'.md' : '' }}</td>
-                    <td>{{ isset($pages['documentationPages'][$i]) ? $pages['documentationPages'][$i].'.md' : '' }}</td>
+                    <td>{{ $pages['bladePages'][$i] ?? ''}}</td>
+                    <td>{{ $pages['markdownPages'][$i] ?? ''}}</td>
+                    <td>{{ $pages['markdownPosts'][$i] ?? ''}}</td>
+                    <td>{{ $pages['documentationPages'][$i] ?? ''}}</td>
                 </tr>
             @endfor
             </tbody>
