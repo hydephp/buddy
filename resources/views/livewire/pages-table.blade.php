@@ -12,7 +12,7 @@
                 @foreach ($pages as $type => $subpages)
                     @foreach ($subpages as $page)
                     <tr>
-                        <td>{{ substr(implode(' ', preg_split('/(?=[A-Z])/', ucwords($type))), 0, -1) }}</td>
+                        <td>{{ $pageNames[$type] }}</td>
                         <td>{{ $page }}</td>
                         <td>
                             <a href="#not-yet-implemented">View</a>
