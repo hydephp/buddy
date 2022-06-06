@@ -34,6 +34,17 @@
             </div>
         @endif
 
+        @if(session()->has('successBanner'))
+            <div class="alert alert-success alert-dismissible fade show m-4" role="alert">
+                <strong class="text-white alert-text ms-2">
+                    {{ session()->get('successBanner') }}
+                </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <livewire:sidebar />
 
         <main>
