@@ -1,73 +1,44 @@
 <div>
     @if (count($pages) > 0)
+    @php
+        // Find the array key with the most items
+        $max = max(array_map('count', $pages));
+    @endphp
         <table class="table table-bordered table-padding-1">
+            
             <thead class="table-dark">
                 <tr>
-                    <th colspan="3">Blade Pages</th>
+                    <th>Blade Pages</th>
+                    <th>Markdown Pages</th>
+                    <th>Markdown Posts</th>
+                    <th>Documentation Pages</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pages['bladePages'] as $page)
-                    <tr>
-                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
-                        <td>{{ $page }}.blade.php</td>
-                        <td class="text-end">
-                            <a class="mx-2" href="#not-yet-implemented">View</a>
-                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-            <thead class="table-dark">
+            @for($i = 0; $i < $max; $i++)
                 <tr>
-                    <th colspan="3">Markdown Pages</th>
+                    @if(isset($pages['bladePages'][$i]))
+                    <td>{{ $pages['bladePages'][$i] }}.blade.php</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @if(isset($pages['markdownPages'][$i]))
+                    <td>{{ $pages['markdownPages'][$i] }}.md</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @if(isset($pages['markdownPosts'][$i]))
+                    <td>{{ $pages['markdownPosts'][$i] }}.md</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @if(isset($pages['documentationPages'][$i]))
+                    <td>{{ $pages['documentationPages'][$i] }}.md</td>
+                    @else
+                    <td></td>
+                    @endif
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($pages['markdownPages'] as $page)
-                    <tr>
-                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
-                        <td>{{ $page }}.md</td>
-                        <td class="text-end">
-                            <a class="mx-2" href="#not-yet-implemented">View</a>
-                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>     
-            <thead class="table-dark">
-                <tr>
-                    <th colspan="3">Markdown Posts</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($pages['markdownPosts'] as $page)
-                    <tr>
-                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
-                        <td>{{ $page }}.md</td>
-                        <td class="text-end">
-                            <a class="mx-2" href="#not-yet-implemented">View</a>
-                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-            <thead class="table-dark">
-                <tr>
-                    <th colspan="3">Documentation Pages</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($pages['documentationPages'] as $page)
-                    <tr>
-                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
-                        <td>{{ $page }}.md</td>
-                        <td class="text-end">
-                            <a class="mx-2" href="#not-yet-implemented">View</a>
-                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
-                        </td>
-                    </tr>
-                @endforeach
+            @endfor
             </tbody>
         </table>
     @else
