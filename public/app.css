@@ -64,3 +64,15 @@ a {
 .status-bullet {
     font-weight: 900;
 }
+
+.table tbody tr:last-child td {
+    border-width:  0 1px;
+}
+
+.table thead th {
+    padding: 0.5rem;
+}
+
+.table.table-padding-1 th, .table.table-padding-1 td {
+    padding: 0.5rem 1rem;
+}

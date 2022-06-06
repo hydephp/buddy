@@ -36,7 +36,8 @@
                     <h5 class="mb-0">Content Explorer</h5>
                 </div>
                 <div class="card-body p-3">
-                    <livewire:content-explorer />
+                    <livewire:pages-table />
+                    {{-- <livewire:content-explorer /> --}}
                 </div>
             </div>
         </section>
