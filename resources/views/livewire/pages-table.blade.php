@@ -1,30 +1,72 @@
 <div>
-    <style>
-        .ptc1 {
-            width: 1%;
-        }
-    </style>
     @if (count($pages) > 0)
         <table class="table table-bordered table-padding-1">
-            <thead>
+            <thead class="table-dark">
                 <tr>
-                    <th class="ptc1">Type</th>
-                    <th>File name</th>
-                    <th class="text-end">Actions</th>
+                    <th colspan="3">Blade Pages</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pages as $type => $subpages)
-                    @foreach ($subpages as $page)
+                @foreach ($pages['bladePages'] as $page)
                     <tr>
-                        <td class="ptc1">{{ $pageNames[$type] }}</td>
-                        <td>{{ $page }}.{{ $type === 'bladePage' ? 'blade.php' : 'md' }}</td>
+                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
+                        <td>{{ $page }}.blade.php</td>
                         <td class="text-end">
                             <a class="mx-2" href="#not-yet-implemented">View</a>
                             <a class="mx-2" href="#not-yet-implemented">Edit</a>
                         </td>
                     </tr>
-                    @endforeach
+                @endforeach
+            </tbody>
+            <thead class="table-dark">
+                <tr>
+                    <th colspan="3">Markdown Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pages['markdownPages'] as $page)
+                    <tr>
+                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
+                        <td>{{ $page }}.md</td>
+                        <td class="text-end">
+                            <a class="mx-2" href="#not-yet-implemented">View</a>
+                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>     
+            <thead class="table-dark">
+                <tr>
+                    <th colspan="3">Markdown Posts</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pages['markdownPosts'] as $page)
+                    <tr>
+                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
+                        <td>{{ $page }}.md</td>
+                        <td class="text-end">
+                            <a class="mx-2" href="#not-yet-implemented">View</a>
+                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+            <thead class="table-dark">
+                <tr>
+                    <th colspan="3">Documentation Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pages['documentationPages'] as $page)
+                    <tr>
+                        <th>{{ Hyde\Framework\Hyde::titleFromSlug($page) }}</th>
+                        <td>{{ $page }}.md</td>
+                        <td class="text-end">
+                            <a class="mx-2" href="#not-yet-implemented">View</a>
+                            <a class="mx-2" href="#not-yet-implemented">Edit</a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

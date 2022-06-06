@@ -18,13 +18,7 @@ class PagesTable extends Component
                 'markdownPages' => CollectionService::getMarkdownPageList(),
                 'markdownPosts' => CollectionService::getMarkdownPostList(),
                 'documentationPages' => CollectionService::getDocumentationPageList(),
-            ]),
-            'pageNames' => [
-                'bladePages'         => '🅱 Blade Page',
-                'markdownPages'      => 'Ⓜ️ Markdown Page',
-                'markdownPosts'      => '🖋️ Markdown Post',
-                'documentationPages' => '📃 Documentation Page',
-            ]
+            ])
         ]);
     }
 }
