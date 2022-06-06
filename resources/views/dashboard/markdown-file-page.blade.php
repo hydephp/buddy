@@ -3,7 +3,7 @@
         {{ config('app.name') }} Markdown File Viewer
     </x-slot>
     
-    <div class="col-12 container d-flex flex-wrap justify-content-center">
+    <div class="col-12 container d-flex flex-column justify-content-center">
         <header class="px-4 py-4 mt-5 text-center">
             <h1 class="text-3xl font-bold">
                 Markdown File Viewer
