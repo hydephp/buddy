@@ -2,6 +2,10 @@
 
 namespace App\Core;
 
+/**
+ * Deprecated as I don't think it adds any value
+ * (The normal Hyde facade can be used directly as we bind the path in the buddy service provider)
+ */
 class HydeProxy extends \Hyde\Framework\Hyde
 {
     protected string $path;
