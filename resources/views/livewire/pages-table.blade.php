@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <th>Type</th>
-                    <th>Page Slug</th>
+                    <th>File name</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -13,7 +13,7 @@
                     @foreach ($subpages as $page)
                     <tr>
                         <td>{{ $pageNames[$type] }}</td>
-                        <td>{{ $page }}</td>
+                        <td>{{ $page }}.{{ $type === 'bladePage' ? 'blade.php' : 'md' }}</td>
                         <td>
                             <a href="#not-yet-implemented">View</a>
                             <a href="#not-yet-implemented">Edit</a>
