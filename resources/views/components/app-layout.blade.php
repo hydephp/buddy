@@ -32,8 +32,8 @@
         </main>
 
         <!--   Core JS Files   -->
-        <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+        <script defer src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+        <script defer src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 
         <!-- Control Center for Argon Dashboard: parallax effects, scripts for the example pages etc -->
         {{-- <script src="{{ asset('assets/js/argon-dashboard.min.js') }}"></script> --}}
