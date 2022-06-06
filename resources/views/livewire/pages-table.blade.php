@@ -17,26 +17,10 @@
             <tbody>
             @for($i = 0; $i < $max; $i++)
                 <tr>
-                    @if(isset($pages['bladePages'][$i]))
-                    <td>{{ $pages['bladePages'][$i] }}.blade.php</td>
-                    @else
-                    <td></td>
-                    @endif
-                    @if(isset($pages['markdownPages'][$i]))
-                    <td>{{ $pages['markdownPages'][$i] }}.md</td>
-                    @else
-                    <td></td>
-                    @endif
-                    @if(isset($pages['markdownPosts'][$i]))
-                    <td>{{ $pages['markdownPosts'][$i] }}.md</td>
-                    @else
-                    <td></td>
-                    @endif
-                    @if(isset($pages['documentationPages'][$i]))
-                    <td>{{ $pages['documentationPages'][$i] }}.md</td>
-                    @else
-                    <td></td>
-                    @endif
+                    <td>{{ isset($pages['bladePages'][$i]) ? $pages['bladePages'][$i].'.blade.php' : '' }}</td>
+                    <td>{{ isset($pages['markdownPages'][$i]) ? $pages['markdownPages'][$i].'.md' : '' }}</td>
+                    <td>{{ isset($pages['markdownPosts'][$i]) ? $pages['markdownPosts'][$i].'.md' : '' }}</td>
+                    <td>{{ isset($pages['documentationPages'][$i]) ? $pages['documentationPages'][$i].'.md' : '' }}</td>
                 </tr>
             @endfor
             </tbody>
