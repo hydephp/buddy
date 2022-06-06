@@ -18,3 +18,10 @@ document.addEventListener('keydown', function (e) {
 		toggleSidebar();
 	}
 });
+
+// Register event listener CTRL+R to reload page (since the embeded Chromium does not have this)
+document.addEventListener('keydown', function (e) {
+	if (e.ctrlKey && e.keyCode == 82) {
+		window.location.reload();
+	}
+});
