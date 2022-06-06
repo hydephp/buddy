@@ -80,3 +80,46 @@ a {
 .table.table-padding-1 th, .table.table-padding-1 td {
     padding: 0.5rem 1rem;
 }
+
+
+
+/* Sidebar control */
+
+#sidebar {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+body.sidebar-collapsed #sidebar {
+    display: none!important;
+}
+
+body main {
+    width: calc(100vw - 400px);
+    margin-left: 300px;
+}
+
+body.sidebar-collapsed main {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+body.sidebar-collapsed #sticky-sidebar-toggle-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: block;
+    opacity: 0.75;
+}
+body.sidebar-collapsed #sticky-sidebar-toggle-button:hover {
+    opacity: 1;
+}
+
+#sticky-sidebar-toggle-button {
+    display: none;
+}
