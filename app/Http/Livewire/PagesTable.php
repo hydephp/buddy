@@ -20,10 +20,10 @@ class PagesTable extends Component
                 'documentationPages' => CollectionService::getDocumentationPageList(),
             ]),
             'pageNames' => [
-                'bladePages' => 'Blade Pages',
-                'markdownPages' => 'Markdown Pages',
-                'markdownPosts' => 'Markdown Posts',
-                'documentationPages' => 'Documentation Pages',
+                'bladePages'         => '🅱 Blade Pages',
+                'markdownPages'      => 'Ⓜ️ Markdown Pages',
+                'markdownPosts'      => '🖋️ Markdown Posts',
+                'documentationPages' => '📃 Documentation Pages',
             ]
         ]);
     }
