@@ -4,6 +4,8 @@
 Bridging the gap between flatfile content managment and a traditional CMS.
 </p>
 
+> Note: Currently am working on rewriting the frontend as this version uses a framework that is not accessible. Consider this deprecated.
+
 ## About
 
 Hyde Buddy is a psuedo-content management system that is built to be a companion to
