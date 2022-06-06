@@ -8,10 +8,10 @@
             
             <thead class="table-dark">
                 <tr>
-                    <th>Blade Pages</th>
-                    <th>Markdown Pages</th>
-                    <th>Markdown Posts</th>
-                    <th>Documentation Pages</th>
+                    <th>Blade Pages <small class="opacity-75">({{ count($pages['bladePages']) }})</small></th>
+                    <th>Markdown Pages <small class="opacity-75">({{ count($pages['markdownPages']) }})</small></th>
+                    <th>Markdown Posts <small class="opacity-75">({{ count($pages['markdownPosts']) }})</small></th>
+                    <th>Documentation Pages <small class="opacity-75">({{ count($pages['documentationPages']) }})</small></th>
                 </tr>
             </thead>
             <tbody>
