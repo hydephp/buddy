@@ -41,6 +41,10 @@ a {
     width: fit-content;
 }
 
+.opacity-75 {
+    opacity: .75;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff;
     background-color: #0d6efd;
